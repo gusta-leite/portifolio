@@ -1,82 +1,82 @@
 .star {
-    mix-blend-mode: exclusion;
-    background-color: #000; /* Fallback color */
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  body {
-    background: linear-gradient(0deg, #533BF4 42.4%, #30228D 94%);
-  }
+  mix-blend-mode: exclusion;
+  background-color: #000; /* Fallback color */
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body {
+  background: #1A1C19;
+}
 
 .lego {
-  text-align: center;
-  align-items: center;
-  margin-top: -10px;
-  user-select: none;
-  }
+text-align: center;
+align-items: center;
+margin-top: -10px;
+user-select: none;
+}
 
 .text {
-  z-index: -1;
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  right: 5%;
-  }
+z-index: -1;
+position: absolute;
+top: 5%;
+left: 5%;
+right: 5%;
+}
 
 .bckg{
-  z-index: -2;
-  position: absolute;
-  top: 0;
-  opacity: 0.4;
+z-index: -2;
+position: absolute;
+top: 0;
+opacity: 0.4;
 }
 
 
 .divider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #271C73;
-  width: 100%;
-  height: 6%;
-  color: #FDFFFC;
-  font-size: 30px;
-  font-family: 'Lexend Deca', 'Open Sans';
-  position: absolute;
-  bottom: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #1c2f22;
+width: 100%;
+height: 6%;
+color: #fdf9ee;
+font-size: 30px;
+font-family: 'Lexend Deca', 'Open Sans';
+position: absolute;
+bottom: 0;
 }
 
 .vdivider1{
-  height: 100%;
-  width: 1%;
-  background-color: #271C73;
-  position:absolute;
-  left: 0;
-  top: 0;
+height: 100%;
+width: 1%;
+background-color: #1c2f22;
+position:absolute;
+left: 0;
+top: 0;
 }
 
 .vdivider2{
-  height: 100%;
-  width: 1%;
-  background-color: #271C73;
-  position:absolute;
-  right: 0;
-  top: 0;
+height: 100%;
+width: 1%;
+background-color: #1c2f22;
+position:absolute;
+right: 0;
+top: 0;
 }
 
 #side_piece{
-  z-index: 1;
-  position: absolute;
-  left: -2%;
-  bottom: 0;
+z-index: 1;
+position: absolute;
+left: -2%;
+bottom: 0;
 }
 
 #side_piece2{
-  z-index: 1;
-  position: absolute;
-  right: -2%;
-  bottom: 0;
+z-index: 1;
+position: absolute;
+right: -2%;
+bottom: 0;
 }

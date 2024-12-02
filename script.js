@@ -1,4 +1,5 @@
 document.documentElement.style.cursor = 'none';
+document.documentElement.style.cursor = 'none';
 
 // gsap 
 
