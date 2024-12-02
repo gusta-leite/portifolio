@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 body {
@@ -52,7 +52,6 @@ bottom: 0;
 .vdivider1{
 height: 100%;
 width: 1%;
-background-color: #1c2f22;
 position:absolute;
 left: 0;
 top: 0;
@@ -61,7 +60,6 @@ top: 0;
 .vdivider2{
 height: 100%;
 width: 1%;
-background-color: #1c2f22;
 position:absolute;
 right: 0;
 top: 0;
