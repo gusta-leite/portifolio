@@ -1,5 +1,4 @@
 document.documentElement.style.cursor = 'none';
-document.documentElement.style.cursor = 'none';
 
 // gsap 
 
@@ -20,5 +19,3 @@ gsap.to(".star", {
     ease: "power1.inOut",
     repeat: -1
   });
-
-//

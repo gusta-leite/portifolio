@@ -1,6 +1,18 @@
+@media (max-width: 640px) {
+  .sidepiece, .sidepiece2 {
+    display: none; 
+  }
+  .lego{
+    height: 55%;
+  }
+  .star {
+    display: none;
+  }
+}
+
 .star {
   mix-blend-mode: exclusion;
-  background-color: #000; /* Fallback color */
+  background-color: #000;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,71 +22,84 @@
 
 body {
   background: #1A1C19;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none; 
 }
 
 .lego {
-text-align: center;
-align-items: center;
-margin-top: -10px;
-user-select: none;
+  text-align: center;
+  align-items: center;
+  margin-top: -10px;
+  max-width: 500%;
 }
 
 .text {
-z-index: -1;
-position: absolute;
-top: 5%;
-left: 5%;
-right: 5%;
+  z-index: -1;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
 }
 
 .bckg{
-z-index: -2;
-position: absolute;
-top: 0;
-opacity: 0.4;
+  z-index: -2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
 }
 
 
 .divider {
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #1c2f22;
-width: 100%;
-height: 6%;
-color: #fdf9ee;
-font-size: 30px;
-font-family: 'Lexend Deca', 'Open Sans';
-position: absolute;
-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #1c2f22;
+  width: 110%;
+  left: -5%;
+  height: 100;
+  position: relative;
+  bottom: -180;
+  margin-bottom: 180px;
 }
 
-.vdivider1{
-height: 100%;
-width: 1%;
-position:absolute;
-left: 0;
-top: 0;
+.sidepiece{
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  margin: 0;
+  left: -3px;
+  padding: 0%;
+  top: -280px;
 }
 
-.vdivider2{
-height: 100%;
-width: 1%;
-position:absolute;
-right: 0;
-top: 0;
+.sidepiece2{
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  margin: 0;
+  right: -3px;
+  top: -280px;
 }
 
-#side_piece{
-z-index: 1;
-position: absolute;
-left: -2%;
-bottom: 0;
+.logo{
+  text-align: center;
+  width: 110%;
+  left: -5%;
+  margin: 0%;
+  position: relative;
+  background-color: #1c2f22;
 }
 
-#side_piece2{
-z-index: 1;
-position: absolute;
-right: -2%;
-bottom: 0;
+p{
+  color: #fdf9ee;
+  font-size: 25px;
+  font-family: 'Lexend Deca', 'Open Sans';
+  position: relative;
+  top: -10;
 }
