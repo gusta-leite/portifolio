@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="10">
   <link rel="stylesheet" href="style.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
 
 <body>
   <main>
+    <div id="overlay"> </div>
     <div class="cursor">
       <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g style="mix-blend-mode:exclusion">
@@ -24,35 +25,47 @@
       </svg>
     </div>
 
+    <div class="cursor2">
+      <svg width="20" height="20" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g style="mix-blend-mode:exclusion">
+          <path
+            d="M0 30C0 13.4315 13.4315 0 30 0V0C46.5685 0 60 13.4315 60 30V30C60 46.5685 46.5685 60 30 60V60C13.4315 60 0 46.5685 0 30V30Z"
+            fill="#F6C24A" />
+        </g>
+      </svg>
+    </div>
+
     <section id="top">
-      <img src="img/background.png" class="bckg"> <!-- fundo -->
-      <div class="lego">
+        <img src="img/bc.svg" class="hug-top" id="backg">
+       <!-- fundo -->
+      <div class="hug-top" id="lego">
         <img src="img/lego.svg" style="height: 70%;">
       </div>
-
+      <span id="col-none"></br></br></br></br></br></br></br></br></br></span>
       <div class="text">
         <img src="img/Vector.svg" style="width: 100%;">
       </div>
     </section>
 
     <section id="dividers">
+
       <div class="sidepiece">
-        <svg width="120" height="976" viewBox="0 0 120 976" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0H19V976H0V0Z" fill="#1C2F22" />
+        <svg width="120" height="976" viewBox="0 0 120 976" fill="none" xmlns="http://www.w3.org/2000/svg" id="sp">
+          <path d="M0 0H19V976H0V0Z" fill="#1C2F22"/>
           <path d="M19 857C19 857 19 904 46.3101 941.5C64.7701 966.848 119.137 976 119.137 976H19V857Z"
             fill="#1C2F22" />
         </svg>
       </div>
 
       <div class="sidepiece2">
-        <svg width="119" height="976" viewBox="0 0 119 976" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="119" height="976" viewBox="0 0 119 976" fill="none" xmlns="http://www.w3.org/2000/svg" id="sp">
           <path d="M100.137 857C100.137 857 100.137 904 72.8268 941.5C54.3668 966.848 0 976 0 976H100.137V857Z"
             fill="#1C2F22" />
           <path d="M100 0H119V976H100V0Z" fill="#1C2F22" />
         </svg>
       </div>
       <div class="divider">
-        <p> o sonho de manter a internet viva segue vivo.</p>
+        <p id="p"> o sonho de manter a internet viva segue vivo.</p>
       </div>
     </section>
 
@@ -71,35 +84,36 @@
         <div class="coluna">
           <img src="img/racp.png">
         </div>
-        <span id="col-none"><div class="coluna">
+        <div class="coluna">
           <img src="img/simflow.png">
-        </div></span>
+        </div>
       </div>
 
-    </br>
+      </br>
+      <div id="col-none"></br></div>
 
-      <div class="container-abt">
+      <div class="container-abt" id="colabt">
         <div class="coluna-abt">
           <img src="img/me.svg">
         </div>
         <div class="coluna-abt"> 
-          <img src="img/star.svg" class="star" style="height: 130%; margin-top: -200px;">
+          <img src="img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -200px;">
         </div>
         <div class="coluna-abt">
-          <img src="img/text.svg" style="height: 80%;">
+          <img src="img/text.svg" style="height: 80%" id="textcol">
           <div class="icons">
             <div class="coluna-icon">
-              <a href="https://www.linkedin.com/in/gustaleite/">
+              <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
               <img src="img/lkd-icon.svg" class="imgbutton">
               </a>
             </div>
             <div class="coluna-icon">
-              <a href="https://github.com/gusta-leite">
+              <a href="https://github.com/gusta-leite" target="_blank">
               <img src="img/git-icon.svg" class="imgbutton">
               </a>
             </div>
             <div class="coluna-icon">
-              <a href="https://www.behance.net/gustaleite/">
+              <a href="https://www.behance.net/gustaleite/" target="_blank">
               <img src="img/beh-icon.svg" class="imgbutton">
               </a>
             </div>
@@ -108,7 +122,13 @@
       </div>
     </div>
 
+     <div id="divsmob" style="background-color: #1c2f22; height: 30%;"> </div>
+     
     <footer class="logo">
+      <button class="button">
+        <span>me mande uma mensagem.</span>
+      </button>
+    </br>
       <img src="img/logo.svg" style="width: 70%;">
     </footer>
 
