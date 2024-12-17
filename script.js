@@ -2,7 +2,6 @@ document.documentElement.style.cursor = 'none';
 
 // gsap to cursor
 
-
 gsap.set(".cursor, .cursor2", { xPercent: -50, yPercent: -50 });
 
 let xToCursor = gsap.quickTo(".cursor", "x", { duration: 0.4, ease: "power3" }),
@@ -40,7 +39,7 @@ $$('.button').forEach(el => el.addEventListener('mousemove', function(e) {
   const my = e.clientY - pos.top - pos.height/2;
    
   this.style.transform = 'translate('+ mx * 0.15 +'px, '+ my * 0.3 +'px)';
-  this.style.transform += 'rotate3d('+ mx * -0.1 +', '+ my * -0.3 +', 0, 12deg)';
+  this.style.transform += 'rotate3d('+ mx * -0.1 +', '+ my * -0.3 +', 0, 10deg)';
   this.children[0].style.transform = 'translate('+ mx * 0.025 +'px, '+ my * 0.075 +'px)';
 }));
 
