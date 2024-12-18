@@ -1,28 +1,22 @@
 @media (max-width: 768px) {
-  #sp {
-    display: none;
-  }
   
-  #col-none {
-    display: none;
-  }
-
-  .cursor {
-    display: none;
-  }
-
-  .cursor2 {
+  #col-none, #maxw, .cursor, .cursor2, #sp {
     display: none;
   }
 
   #lego-img {
-    height: 35%;
+    height: 30%;
+  }
+
+  #other{
+    rotate: -3deg;
+    margin-top: 6.5vh;
   }
 
   #background {
     width: 100vw;
     height: 100vw;
-    margin-top: -60%;
+    margin-top: -50%;
   }
 
   .container-title img {
@@ -79,13 +73,27 @@
     color: #FFF2DC;
     margin-bottom: -2vh;
   }
+  
   #logofin{
     width: 90%;
+  }
+  #logocom{
+    display: none;
+  }
+  #logocomoth{
+    width: 100%;
+  }
+  .text{
+    text-align: center;
+    margin-top: 1vh;
   }
 }
 
 @media (min-width: 768px) {
-  #divsmob {
+  #other, #logocomoth, #col-none-pc{
+    display: none;
+  }
+  #divsmob, #divsmob2, #divsmob3 {
     display: none;
   }
 
@@ -247,7 +255,8 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 2.2vw;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
+  border-radius: 24px;
 }
 
 .container-proj img {
@@ -255,37 +264,19 @@ a {
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  z-index: 1;
+  background-color: #1A1C19;
+}
+
+.container-proj img:hover {
+  transform: scale(1.1) ease;
+  transition: 0.5s;
+  border-radius: 50px;
 }
 
 .coluna-proj {
   flex: 1;
   text-align: center;
 }
-
-/* 
-.imgproj{
-  transition: background-color 0.3s ease;
-}
-
-.overlay{
-  display: none;
-  background-color: #1D1FA6;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  opacity: 0.5;
-  visibility: hidden;
-}
-
-.imgproj:hover + .overlay {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
-*/
 
 .container-abt {
   position: relative;
@@ -332,10 +323,20 @@ a {
   text-align: center;
 }
 
+/* divisorias */
+
 #divsmob {
   background-color: #1c2f22;
   height: 23vh;
 }
+#divsmob2 {
+  background-color: #1c2f22;
+  height: 5vh;
+}
+#divsmob3 {
+  height: 16vh;
+}
+  
 
 /* footer css */
 
