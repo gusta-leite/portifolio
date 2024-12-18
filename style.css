@@ -195,19 +195,25 @@ a {
   opacity: 0.4;
 }
 
-.sidepiece {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  top: -280px;
+.landing{
+  overflow-y: hidden;
 }
 
-.sidepiece2 {
+#sidepiece {
   position: absolute;
   margin: 0;
   padding: 0;
-  right: -3px;
-  top: -280px;
+  bottom: 0;
+  margin-bottom: 4vh;
+}
+
+#sidepiece2 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 4vh;
 }
 
 .divider {
