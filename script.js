@@ -18,6 +18,35 @@ window.addEventListener("mousemove", (e) => {
   yToCursor2(e.clientY);
 });
 
+//
+
+gsap.set(".curproj, .curprojmini", { xPercent: -50, yPercent: -50, opacity: 0 });
+
+let xToSelect = gsap.quickTo(".curproj", "x", { duration: 0.4, ease: "power3" }),
+  yToSelect = gsap.quickTo(".curproj", "y", { duration: 0.4, ease: "power3" });
+
+let xToSelectmini = gsap.quickTo(".curprojmini", "x", { duration: 0.6, ease: "power3" }),
+  yToSelectmini = gsap.quickTo(".curprojmini", "y", { duration: 0.6, ease: "power3" });
+
+document.querySelectorAll(".bento__item").forEach((item) => {
+  item.addEventListener("mousemove", (e) => {
+    xToSelect(e.clientX);
+    yToSelect(e.clientY);
+    xToSelectmini(e.clientX);
+    yToSelectmini(e.clientY);
+  });
+
+  item.addEventListener("mouseleave", () => {
+    gsap.to(".curproj, .curprojmini", { opacity: 0, duration: 0.2 });
+    gsap.to(".cursor, .cursor2", { opacity: 1, duration: 0.2 });
+  });
+
+  item.addEventListener("mouseenter", () => {
+    gsap.to(".curproj, .curprojmini", { opacity: 1, duration: 0.2 });
+    gsap.to(".cursor, .cursor2", { opacity: 0, duration: 0.2 });
+  });
+});
+
 // gsap rotation
 
 gsap.to(".star", {
@@ -48,3 +77,12 @@ $$('.button').forEach(el => el.addEventListener('mouseleave', function () {
   this.style.transform += 'rotate3d(0, 0, 0, 0deg)';
   this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
 }));
+
+// popup section
+
+const button = document.getElementById('toggle');
+const content = document.getElementById('links');
+
+button.addEventListener('click', () => {
+  content.classList.toggle('show');
+});
