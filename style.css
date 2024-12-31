@@ -86,6 +86,7 @@
   #linksmobs img {
     align-items: center;
     width: 50%;
+    mix-blend-mode: difference;
   }
 
   #logofin {
