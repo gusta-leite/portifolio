@@ -11,18 +11,19 @@
     display: none;
   }
 
-  #lego-img {
-    height: 30%;
+  .lego-img {
+    height: 60%;
+    margin-top: 12vh;
   }
 
   #other {
-    rotate: -3deg;
+    rotate: -6deg;
     margin-top: 6.5vh;
   }
 
   #background {
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     margin-top: -50%;
   }
 
@@ -217,31 +218,39 @@ a {
   z-index: 4;
 }
 
-#lego-img {
+.lego-img {
+  z-index: 2;
   text-align: center;
   max-width: 100vw;
   max-height: 100vw;
+  transition: transform 1s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.lego-img.invisible {
+  transform: translateY(-70vh);
+  opacity: 0;
+}
+
+.lego-img.visible {
+  transform: translateY(0vh);
+  opacity: 1;
 }
 
 .text {
-  z-index: -1;
   position: absolute;
   left: 5%;
   right: 5%;
   top: 0;
 }
 
-#background {
-  z-index: -2;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.4;
-}
-
-.landing {
+#landing {
+  z-index: -1;
   overflow-y: hidden;
+  background-image: url(img/bctest.svg);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
 }
 
 #sidepiece {
@@ -347,23 +356,20 @@ a {
   min-block-size: 100vh;
   display: flex;
   flex-wrap: wrap;
-  gap: 1ch;
-  padding: 1ch;
   width: 90vw;
   margin: 0 auto;
 }
 
 .bento__container {
   display: grid;
-  grid-template-rows: 4fr 1fr 2fr 2fr 4fr;
-  gap: 1ch;
+  grid-template-rows: 4fr 1fr 3fr 3fr 4fr 6fr;
+  gap: 2ch;
   min-height: inherit;
   flex: 2 0 320px;
   z-index: 3;
 }
 
 .bento__container[variant-2] {
-  grid-template-columns: 2fr 3fr 1fr 2fr;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -403,7 +409,7 @@ a {
 
 #links img {
   align-items: center;
-  width: 50%;
+  width: 40%;
 }
 
 #fill2 {
@@ -413,25 +419,37 @@ a {
 }
 
 #fill3 {
-  background-image: url(img/simflow.png);
+  background-image: url(img/bacate.png);
   background-position: center;
   background-size: cover;
 }
 
 #fill4 {
-  background-image: url(img/racao.png);
+  background-image: url(img/simflow.png);
   background-position: center;
   background-size: cover;
 }
 
 #fill5 {
+  background-image: url(img/racao.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#fill6 {
+  background-image: url(img/chalote.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#fill7 {
   background-image: url(img/untitled.gif);
   background-position: center;
   background-size: cover;
 }
 
 .bento2 {
-  min-block-size: 85vh;
+  min-block-size: 100vh;
   display: flex;
   flex-wrap: wrap;
   gap: 1ch;
@@ -466,49 +484,25 @@ a {
   border-radius: 1rem;
 }
 
-#fillmob1 {
-  background-image: url(img/night\ march.png);
-  background-position: center;
-  background-size: cover;
-}
-
-#fillmob2 {
-  background-image: url(img/sonhg.png);
-  background-position: center;
-  background-size: cover;
-}
-
-#fillmob3 {
-  background-image: url(img/racao.png);
-  background-position: center;
-  background-size: cover;
-}
-
-#fillmob4 {
-  background-image: url(img/simflow.png);
-  background-position: center;
-  background-size: cover;
-}
-
 /* divisorias */
 
 #divsmob {
   background-color: #1c2f22;
-  height: 55vh;
+  height: 70vh;
 }
 
 #divsmob2 {
   background-color: #1c2f22;
-  height: 5vh;
+  height: 2vh;
 }
 
 #divsmob3 {
-  height: 16vh;
+  height: 22vh;
 }
 
 #divspc {
   background-color: #1c2f22;
-  height: 70vh;
+  height: 80vh;
 }
 
 /* footer css */

@@ -86,3 +86,18 @@ const content = document.getElementById('links');
 button.addEventListener('click', () => {
   content.classList.toggle('show');
 });
+
+// animação
+function sleep(seconds) {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
+const logo = document.querySelector(".lego-img");
+
+window.addEventListener('load', function () {
+  sleep(0.1).then(() => {
+    logo.classList.add('invisible');
+  });
+  sleep(0.4).then(() =>
+    logo.classList.add('visible'),
+  );
+});
