@@ -101,3 +101,25 @@ window.addEventListener('load', function () {
     logo.classList.add('visible'),
   );
 });
+
+// movement and loading
+
+function sleep(seconds) {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
+
+const loading = document.querySelector(".loading");
+const loading2 = document.querySelector(".loading2");
+
+window.addEventListener('load', function () {
+  sleep(1).then(() => {
+    loading.classList.add('hidden');
+    setTimeout(() => {
+      loading.style.display = 'none';
+    }, 500);
+    loading2.classList.add('hidden');
+    setTimeout(() => {
+      loading2.style.display = 'none';
+    }, 500);
+  });
+});

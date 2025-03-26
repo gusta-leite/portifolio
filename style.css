@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
   #col-none,
   #maxw,
@@ -63,30 +63,39 @@
     background-color: #1A1C19;
     align-items: center;
     border: 0;
-    padding: 10px;
+    padding: 15px;
     width: auto;
-    height: 30px;
-    border-radius: 1vw;
+    height: 45px;
+    border-radius: 3vw;
     font-family: 'Lexend Deca', 'Open Sans';
-    font-size: 2.5vw;
+    font-size: 2.8vw;
     color: #FFF2DC;
-    margin-bottom: -2vh;
+    margin-bottom: -1vh;
+  }
+
+  #linksmobs-s{
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
   }
 
   #linksmobs {
+    display: flex;
+    position: relative;
     height: 30%;
-    width: 100%;
+    width: 50%;
     grid-template-columns: repeat(2, 1fr 1fr);
     border-radius: 1rem 1rem 0 0;
     margin: 0 auto;
-    float: right;
-    margin-right: -10vw;
-    background-color: rgba(26, 28, 25, 0);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1vh;
   }
 
   #linksmobs img {
     align-items: center;
-    width: 50%;
+    width: 40%;
     mix-blend-mode: difference;
   }
 
@@ -218,6 +227,88 @@ a {
   z-index: 4;
 }
 
+.bg-an {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  opacity: .9;
+  visibility: visible;
+  z-index: -1;
+}
+
+@keyframes bg-animation {
+  0% {
+      transform: translate(0, 0)
+  }
+
+  10% {
+      transform: translate(-5%, -5%)
+  }
+
+  20% {
+      transform: translate(-10%, 5%)
+  }
+
+  30% {
+      transform: translate(5%, -10%)
+  }
+
+  40% {
+      transform: translate(-5%, 15%)
+  }
+
+  50% {
+      transform: translate(-10%, 5%)
+  }
+
+  60% {
+      transform: translate(15%, 0)
+  }
+
+  70% {
+      transform: translate(0, 10%)
+  }
+
+  80% {
+      transform: translate(-15%, 0)
+  }
+
+  90% {
+      transform: translate(10%, 5%)
+  }
+
+  100% {
+      transform: translate(5%, 0)
+  }
+}
+
+.loading {
+  height: 320vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  background-color: #191915;
+  z-index: 5;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.loading.hidden {
+  transform: translateY(30vh);
+  background: none;
+  opacity: 0;
+}
+
+.loading img{
+  position: absolute;
+  width: 50%;
+  top: 50vh;
+}
+
 .lego-img {
   z-index: 2;
   text-align: center;
@@ -321,6 +412,7 @@ a {
   object-fit: contain;
   width: 100%;
   height: 100%;
+  max-height: fit-content;
 }
 
 .coluna-abt {
@@ -341,6 +433,7 @@ a {
   grid-template-columns: repeat(3, 1fr);
   overflow: contain;
   align-items: center;
+  margin-top: 1vh;
 }
 
 .icons img {
@@ -489,7 +582,6 @@ a {
 
 #divsmob {
   background-color: #1c2f22;
-  height: 70vh;
 }
 
 #divsmob2 {
