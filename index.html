@@ -23,6 +23,7 @@
 
     gtag('config', 'G-2121WJRKZ7');
   </script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <title> gustavo's portfolio </title>
 </head>
 
@@ -69,7 +70,7 @@
     </section>
 
     <div class="loading">
-      <img src="img/loading.svg">
+      <img src="img/loading.svg" class="starload">
     </div>
 
     <div id="landing">
@@ -80,9 +81,16 @@
         <img src="img/logo-oth.svg" id="logocomoth">
       </div>
       <div class="lego-img">
-        <img src="img/legostar.svg" id="maxw" style="height: 70%;">
-        <img src="img/lego-oth.svg" id="other" style="height: 125%;">
+        <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-zoom camera-orbit="05deg 90deg 105%"
+          orbit-sensitivity="1" field-of-view="35deg" tone-mapping="aces" exposure="0.5" interaction-prompt="none"
+          id="model-pc">
+        </model-viewer>
+
+        <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-zoom camera-orbit="05deg 90deg 105%"
+          orbit-sensitivity="0.09" field-of-view="35deg" tone-mapping="aces" exposure="0.5" interaction-prompt="none" id="model-cell">
+        </model-viewer>
       </div>
+      <img src="img/star.svg" class="star-landing">
       <div id="divsmob3"></div>
       <span id="col-none"></br></br></br></br></br></br></br></br></br></span>
 
@@ -142,7 +150,7 @@
             </a>
           </div>
           <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
-            <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank">
+            <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank">
               <div style="height: 100%; width: 100%;"></div>
             </a>
           </div>
@@ -152,11 +160,11 @@
             </a>
           </div>
           <div class="bento__item" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
-            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
+            <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank">
               <div style="height: 100%; width: 100%;"></div>
             </a>
           </div>
-          <div class="bento__item" style=" --rows: span 4;" id="fill5" itemid="5">
+          <div class="bento__item" style=" --rows: span 3;" id="fill5" itemid="5">
             <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank">
               <div style="height: 100%; width: 100%;"></div>
             </a>
@@ -167,6 +175,22 @@
             </a>
           </div>
           <div class="bento__item" style="--rows: span 3;" id="fill7"></div>
+
+          <div class="bento__item" style="--columns: span 1; --rows: span 15;" id="fill8" itemid="1">
+            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
+              <div style="height: 100%; width: 100%;"></div>
+            </a>
+          </div>
+          <div class="bento__item" style="--columns: span 3; --rows: span 13;" id="fill9" itemid="2">  <!-- mudar columns depois -->
+            <a href="https://docelimao.vercel.app/" target="_blank">
+              <div style="height: 100%; width: 100%;"></div>
+            </a>
+          </div>
+         <!--<div class="bento__item" style="--columns: span 2; --rows: span 13;" id="fill10" itemid="2">
+            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
+              <div style="height: 100%; width: 100%;"></div>
+            </a>
+          </div> --> 
         </div>
       </div>
 
@@ -197,7 +221,7 @@
             </a>
           </div>
           <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill2">
-            <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank">
+            <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank">
               <div style="height: 100%; width: 100%;"></div>
             </a>
           </div>
@@ -207,7 +231,7 @@
             </a>
           </div>
           <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill4">
-            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
+            <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank">
               <div style="height: 100%; width: 100%;"></div>
             </a>
           </div>
@@ -218,6 +242,16 @@
           </div>
           <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill6">
             <a href="https://www.behance.net/gallery/201461509/UI-Aquario-Chalote" target="_blank">
+              <div style="height: 100%; width: 100%;"></div>
+            </a>
+          </div>
+          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill8">
+            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
+              <div style="height: 100%; width: 100%;"></div>
+            </a>
+          </div>
+          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill9">
+            <a href="https://docelimao.vercel.app/" target="_blank">
               <div style="height: 100%; width: 100%;"></div>
             </a>
           </div>
@@ -257,7 +291,10 @@
     </div>
 
     <div id="divsmob">
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </div>
     <div id="divspc"></div>
 
@@ -275,6 +312,8 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
   <script src="script.js"> </script>
 </body>
 

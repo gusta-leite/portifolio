@@ -1,7 +1,6 @@
 document.documentElement.style.cursor = 'none';
 
 // gsap to cursor
-
 gsap.set(".cursor, .cursor2", { xPercent: -50, yPercent: -50 });
 
 let xToCursor = gsap.quickTo(".cursor", "x", { duration: 0.4, ease: "power3" }),
@@ -19,7 +18,6 @@ window.addEventListener("mousemove", (e) => {
 });
 
 //
-
 gsap.set(".curproj, .curprojmini", { xPercent: -50, yPercent: -50, opacity: 0 });
 
 let xToSelect = gsap.quickTo(".curproj", "x", { duration: 0.4, ease: "power3" }),
@@ -48,17 +46,31 @@ document.querySelectorAll(".bento__item").forEach((item) => {
 });
 
 // gsap rotation
-
 gsap.to(".star", {
   rotation: 360,
-  duration: 20,
-  ease: "linear",
+  duration: 9,
+  ease: "circ.inOut",
+  repeat: -1,
+  transformOrigin: "50% 50%"
+});
+
+gsap.to(".starload", {
+  rotation: 360,
+  duration: 5,
+  ease: "circ.inOut",
+  repeat: -1,
+  transformOrigin: "50% 50%"
+});
+
+gsap.to(".star-landing", {
+  rotation: 360,
+  duration: 12,
+  ease: "circ.inOut",
   repeat: -1,
   transformOrigin: "50% 50%"
 });
 
 // botão
-
 const $ = (s, o = document) => o.querySelector(s);
 const $$ = (s, o = document) => o.querySelectorAll(s);
 
@@ -79,7 +91,6 @@ $$('.button').forEach(el => el.addEventListener('mouseleave', function () {
 }));
 
 // popup section
-
 const button = document.getElementById('toggle');
 const content = document.getElementById('links');
 
@@ -91,7 +102,7 @@ button.addEventListener('click', () => {
 function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
-const logo = document.querySelector(".lego-img");
+const logo = document.querySelector("#model-pc");
 
 window.addEventListener('load', function () {
   sleep(0.1).then(() => {
@@ -107,9 +118,7 @@ window.addEventListener('load', function () {
 function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
-
 const loading = document.querySelector(".loading");
-const loading2 = document.querySelector(".loading2");
 
 window.addEventListener('load', function () {
   sleep(1).then(() => {
@@ -117,9 +126,19 @@ window.addEventListener('load', function () {
     setTimeout(() => {
       loading.style.display = 'none';
     }, 500);
-    loading2.classList.add('hidden');
-    setTimeout(() => {
-      loading2.style.display = 'none';
-    }, 500);
+  });
+});
+
+// model viewer 3d tools
+
+const modelViewer = document.querySelector('model-viewer');
+modelViewer.addEventListener('load', () => {
+  modelViewer.addEventListener('camera-change', () => {
+    const orbit = modelViewer.getCameraOrbit();
+    const targetPhi = 75 * (Math.PI / 180);
+    const newPhi = orbit.phi * 0.7 + targetPhi * 0.3;
+
+    modelViewer.cameraOrbit =
+      `${orbit.theta}deg ${newPhi * (180 / Math.PI)}deg ${orbit.radius}%`;
   });
 });
