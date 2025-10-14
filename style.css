@@ -13,19 +13,8 @@
   }
 
   .lego-img {
-    height: 60%;
-    margin-top: 12vh;
-  }
-
-  #other {
-    rotate: -6deg;
-    margin-top: 6.5vh;
-  }
-
-  #background {
-    width: 100vw;
-    height: 100vh;
-    margin-top: -50%;
+    height: 55%;
+    margin-top: 17vh;
   }
 
   .container-title img {
@@ -36,6 +25,8 @@
   .container-abt {
     top: 2vw;
     width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vh;
   }
 
   .container-abt img {
@@ -53,21 +44,21 @@
   }
 
   #p {
-    font-size: 2.5vw;
+    font-size: 4vw;
     top: 0.8vw;
   }
 
   .button {
-    background-color: #1A1C19;
+    background-color: var(--color-main-black);
     border: 0;
     padding: 10px;
-    width: auto;
+    width: 12rem;
     height: 40px;
     border-radius: 3vw;
-    font-family: 'Lexend Deca', 'Open Sans';
-    font-size: 2.4vw;
-    color: #FFF2DC;
-    margin-left: 26vh;
+    font-family: 'Urbanist', 'Open Sans';
+    font-size: 3vw;
+    color: var(--color-main-white);
+    margin-left: 24vh;
     margin-top: -5vh;
   }
 
@@ -98,7 +89,9 @@
   }
 
   #logofin {
-    width: 90%;
+    width: 80%;
+    margin-left: -4rem;
+    margin-top: 2rem;
   }
 
   #logocom {
@@ -111,31 +104,7 @@
 
   .text {
     text-align: center;
-    margin-top: 1vh;
-  }
-
-  .loading {
-    height: 320vh;
-    width: 100vw;
-    margin: 0;
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    background-color: #191915;
-    z-index: 5;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-
-  .loading.hidden {
-    transform: translateY(30vh);
-    background: none;
-    opacity: 0;
-  }
-
-  .loading img {
-    position: absolute;
-    width: 90%;
-    top: 65vh;
+    margin-top: 5vh;
   }
 
   #model-pc {
@@ -157,6 +126,36 @@
     top: 76%;
     left: 53%;
     transform: translate(-50%, -50%);
+  }
+
+  .nav-link {
+    font-size: 4vw;
+  }
+
+  .loading {
+    top: -1rem;
+    height: 270vw;
+    position: absolute;
+    width: 100vw;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  #counter {
+    margin-top: 85vh;
+    margin-left: 1rem;
+    font-size: 20vw;
+  }
+
+  .loading-bg {
+    height: 80vw;
+  }
+
+  .nav-list {
+    margin-left: 10rem;
+  }
+
+  #projetos {
+    margin-bottom: 17rem;
   }
 }
 
@@ -211,43 +210,19 @@
   .button {
     text-align: center;
     display: flex;
-    background-color: #1A1C19;
+    background-color: var(--color-main-black);
     align-items: center;
     justify-content: center;
     border: 0;
-    padding: 10px 30px;
+    padding: 8px 20px;
     width: auto;
     height: 65px;
     border-radius: 1vw;
     cursor: none;
-    font-family: 'Lexend Deca', 'Open Sans';
+    font-family: 'Urbanist', 'Open Sans';
     font-size: 1.5vw;
-    color: #FFF2DC;
+    color: var(--color-main-white);
     margin-bottom: -6vh;
-  }
-
-  .loading {
-    height: 320vh;
-    width: 100vw;
-    margin: 0;
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    background-color: #191915;
-    z-index: 5;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-
-  .loading.hidden {
-    transform: translateY(30vh);
-    background: none;
-    opacity: 0;
-  }
-
-  .loading img {
-    position: absolute;
-    width: 50%;
-    top: 50vh;
   }
 
   #logofin {
@@ -263,6 +238,35 @@
     left: 51%;
     transform: translate(-50%, -50%);
   }
+
+  .nav-link {
+    font-size: 1vw;
+  }
+
+  .loading {
+    height: 80vw;
+    width: 100vw;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+  #counter {
+    margin-top: 118vh;
+    margin-left: 1rem;
+    font-size: 5vw;
+  }
+
+  .loading-bg {
+    height: 80vw;
+  }
+
+  #projetos {
+    margin-bottom: 11rem;
+  }
+
+  .container-abt {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 2.2vw;
+  }
 }
 
 /* body css */
@@ -272,13 +276,19 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background-color: #1A1C19;
+  background-color: var(--color-main-black);
+
+  /*colors */
+  --color-main-black: #1A1C19;
+  --color-main-white: #fdf9ee;
+  --color-main-green: #1c2f22;
+  --color-main-red: #39393A;
 }
 
 p {
-  color: #fdf9ee;
+  color: var(--color-main-white);
   font-size: 1.5vw;
-  font-family: 'Lexend Deca', 'Open Sans';
+  font-family: 'Urbanist', 'Open Sans';
   position: relative;
   margin-top: 0.7%;
 }
@@ -332,64 +342,6 @@ canvas {
   z-index: 4;
 }
 
-.bg-an {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-  background-repeat: repeat;
-  animation: bg-animation .2s infinite;
-  opacity: .9;
-  visibility: visible;
-  z-index: -1;
-}
-
-@keyframes bg-animation {
-  0% {
-    transform: translate(0, 0)
-  }
-
-  10% {
-    transform: translate(-5%, -5%)
-  }
-
-  20% {
-    transform: translate(-10%, 5%)
-  }
-
-  30% {
-    transform: translate(5%, -10%)
-  }
-
-  40% {
-    transform: translate(-5%, 15%)
-  }
-
-  50% {
-    transform: translate(-10%, 5%)
-  }
-
-  60% {
-    transform: translate(15%, 0)
-  }
-
-  70% {
-    transform: translate(0, 10%)
-  }
-
-  80% {
-    transform: translate(-15%, 0)
-  }
-
-  90% {
-    transform: translate(10%, 5%)
-  }
-
-  100% {
-    transform: translate(5%, 0)
-  }
-}
-
 .text {
   position: absolute;
   left: 5%;
@@ -397,49 +349,86 @@ canvas {
   top: 0;
 }
 
-#landing {
-  z-index: -1;
-  overflow-y: hidden;
-  background-image: url(img/bctest.svg);
-  background-size: cover;
-  background-repeat: none;
-  background-position: center;
-}
-
-#sidepiece {
+.sidebar-left {
   position: absolute;
   margin: 0;
   padding: 0;
-  bottom: 0;
-  margin-bottom: 4vh;
 }
 
-#sidepiece2 {
-  position: absolute;
+.sidebar-right {
   margin: 0;
   padding: 0;
   right: 0;
-  bottom: 0;
-  margin-bottom: 4vh;
+}
+
+.sidebar-left,
+.sidebar-right {
+  transition: height 0.4s ease-in-out;
+  position: absolute;
+  top: 0;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-left: 10vw;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--color-main-white);
+  font-family: 'Urbanist', 'Open Sans';
+  position: relative;
+  text-decoration: none;
 }
 
 .divider {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: #1c2f22;
+  background-color: var(--color-main-green);
   width: 100%;
-  height: 7vw;
+  height: 8vw;
+  margin-top: -1px;
   position: relative;
+}
+
+/* loading */
+
+.loading {
+  margin: 0;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  background-color: var(--color-main-black);
+  z-index: 10;
+}
+
+.loading.hidden {
+  transform: translateY(30rem);
+  background: none;
+  opacity: 0;
+}
+
+#counter {
+  text-align: start;
+  line-height: 0%;
+  color: var(--color-main-white);
+  font-family: 'Urbanist', sans-serif;
+  font-weight: bold;
 }
 
 /* section - projetos css */
 
 #projetos {
   position: relative;
-  height: 100%;
-  background-color: #1c2f22;
+  height: 130vh;
   width: 100%;
+  margin-top: 3rem;
 }
 
 .container-title {
@@ -465,8 +454,7 @@ canvas {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 2.2vw;
+  margin-top: 5rem;
   overflow: contain;
 }
 
@@ -484,7 +472,7 @@ canvas {
 }
 
 .icons {
-  background-color: #1A1C19;
+  background-color: var(--color-main-black);
   position: relative;
   width: 100%;
   border-radius: 7px;
@@ -509,7 +497,8 @@ canvas {
 }
 
 .bento {
-  min-block-size: 110vh;
+  min-block-size: 90vh;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   width: 90vw;
@@ -518,7 +507,7 @@ canvas {
 
 .bento__container {
   display: grid;
-  grid-template-rows: 5fr 1fr 1fr 3fr 4fr 6fr;
+  grid-template-rows: 5fr 1fr 1fr 3fr 4fr 6fr 1fr;
   gap: 2ch;
   min-height: inherit;
   flex: 2 0 320px;
@@ -526,7 +515,7 @@ canvas {
 }
 
 .bento__container[variant-1] {
-  grid-template-columns: 2fr 3fr 1fr 2fr;
+  grid-template-columns: 2fr 3fr 2fr 2fr;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -539,17 +528,16 @@ canvas {
   width: 100%;
   grid-column: var(--columns, span 1);
   grid-row: var(--rows, span 1);
-  background-color: var(--bg);
   border-radius: 1rem;
 }
 
 #fill1 {
-  background-image: url(img/projects/night\ march.png);
+  background-image: url(img/projects/efivi.png);
   background-position: center;
   background-size: cover;
 }
 
-#links {
+.toggle-content {
   height: 20%;
   width: 30%;
   grid-template-columns: repeat(1, 1fr 1fr 1fr 1fr 1fr);
@@ -561,18 +549,18 @@ canvas {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-#links.show {
+.toggle-content.show {
   opacity: 1;
   visibility: visible;
 }
 
-#links img {
+.toggle-content img {
   align-items: center;
   width: 50%;
 }
 
 #fill2 {
-  background-image: url(img/projects/projong.png);
+  background-image: url(img/projects/rivota.png);
   background-position: center;
   background-size: cover;
 }
@@ -584,7 +572,7 @@ canvas {
 }
 
 #fill4 {
-  background-image: url(img/projects/sonhg.png);
+  background-image: url(img/projects/projong.png);
   background-position: center;
   background-size: cover;
 }
@@ -596,13 +584,13 @@ canvas {
 }
 
 #fill6 {
-  background-image: url(img/projects/chalote.png);
+  background-image: url(img/projects/night\ march.png);
   background-position: center;
   background-size: cover;
 }
 
 #fill7 {
-  background-image: url(img/projects/untitled.gif);
+  background-image: url(img/projects/sonhg.png);
   background-position: center;
   background-size: cover;
 }
@@ -614,13 +602,7 @@ canvas {
 }
 
 #fill9 {
-  background-image: url(img/projects/docelimao.png);
-  background-position: center;
-  background-size: cover;
-}
-
-#fill10 {
-  background-image: url(img/projects/untitled2.png);
+  background-image: url(img/projects/chalote.png);
   background-position: center;
   background-size: cover;
 }
@@ -662,22 +644,8 @@ canvas {
 
 /* divisorias */
 
-#divsmob {
-  background-color: #1c2f22;
-}
-
-#divsmob2 {
-  background-color: #1c2f22;
-  height: 2vh;
-}
-
 #divsmob3 {
   height: 20vh;
-}
-
-#divspc {
-  background-color: #1c2f22;
-  height: 80vh;
 }
 
 /* footer css */
@@ -692,5 +660,5 @@ footer {
   margin: 0%;
   position: relative;
   bottom: 0;
-  background-color: #1c2f22;
+  background-color: var(--color-main-green);
 }

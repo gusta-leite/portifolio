@@ -2,18 +2,18 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-  <meta property="og:image" content="https://imgur.com/a/banner-FW047K7" />
-  <meta property="og:title" content="gustavo's portfolio" />
-  <meta property="og:url" content="https://gustaleite.vercel.app/" />
-  <meta property="og:type" content="portfolio website" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="meu canto, meus projetos">
 
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
   <link rel="shortcut icon" type="imagex/png" href="./img/icon.ico">
+
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -21,6 +21,7 @@
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "qrs7qht0wz");
   </script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2121WJRKZ7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,6 +30,7 @@
 
     gtag('config', 'G-2121WJRKZ7');
   </script>
+
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <title> gustavo's portfolio </title>
 </head>
@@ -38,7 +40,7 @@
 
     <section> <!-- Cursores-->
       <div class="cursor">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g style="mix-blend-mode:exclusion">
             <path
               d="M0 30C0 13.4315 13.4315 0 30 0V0C46.5685 0 60 13.4315 60 30V30C60 46.5685 46.5685 60 30 60V60C13.4315 60 0 46.5685 0 30V30Z"
@@ -56,7 +58,7 @@
         </svg>
       </div>
       <div class="curproj">
-        <svg width="70" height="70" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g style="mix-blend-mode:exclusion">
             <path
               d="M100 50C100 77.6142 77.6142 100 50 100C22.3858 100 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50Z"
@@ -65,7 +67,7 @@
         </svg>
       </div>
       <div class="curprojmini">
-        <svg width="30" height="30" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="20" height="20" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g style="mix-blend-mode:exclusion">
             <path
               d="M17.7 34.1L14.6 31.5L25.85 19.95C26.0833 19.75 26.25 19.5833 26.35 19.45C26.4833 19.3167 26.5667 19.2167 26.6 19.15H0V14.95H26.65C26.5833 14.85 26.4833 14.75 26.35 14.65C26.25 14.5167 26.0833 14.3333 25.85 14.1L14.7 2.75L17.65 0L30 12.6C30.8333 13.4333 31.45 14.1833 31.85 14.85C32.2833 15.5167 32.5 16.2333 32.5 17C32.5 17.7333 32.2833 18.4667 31.85 19.2C31.45 19.9 30.8333 20.6667 30 21.5L17.7 34.1Z"
@@ -75,255 +77,352 @@
       </div>
     </section>
 
-    <div class="loading">
-      <img src="img/loading.svg" class="starload">
+    <div class="loading" style="display: block;">
+      <div id="counter">1</div>
+      <div class="loading-bg"> </div>
     </div>
 
-    <div id="landing">
+    <div class="landing">
       <!-- fundo -->
-      <div class="bg-an"> </div>
-      <div class="text">
-        <img src="img/Vector.svg" style="width: 100%;" id="logocom">
-        <img src="img/logo-oth.svg" id="logocomoth">
-      </div>
-      <div class="lego-img">
-        <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-zoom camera-orbit="05deg 90deg 105%"
-          orbit-sensitivity="1" field-of-view="35deg" tone-mapping="aces" exposure="0.5" interaction-prompt="none"
-          id="model-pc">
-        </model-viewer>
+      <div class="lp-container">
+        <div class="lp" id="inicio">
+          <div class="text">
+            <img src="img/Vector.svg" style="width: 100%;" id="logocom" alt="logo">
+            <img src="img/logo-oth.svg" id="logocomoth" alt="logo">
+          </div>
+          <div class="lego-img">
+            <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-pan disable-zoom
+              camera-orbit="05deg 90deg 105%" orbit-sensitivity="1" field-of-view="35deg" tone-mapping="aces"
+              exposure="0.5" interaction-prompt="none" id="model-pc">
+            </model-viewer>
 
-        <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-zoom camera-orbit="05deg 90deg 105%"
-          orbit-sensitivity="0.09" field-of-view="35deg" tone-mapping="aces" exposure="0.5" interaction-prompt="none"
-          id="model-cell">
-        </model-viewer>
-      </div>
-      <img src="img/star.svg" class="star-landing">
-      <div id="divsmob3"></div>
-      <span id="col-none"></br></br></br></br></br></br></br></br></br></span>
+            <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-pan disable-zoom
+              camera-orbit="05deg 90deg 105%" orbit-sensitivity="0.09" field-of-view="35deg" tone-mapping="aces"
+              exposure="0.5" interaction-prompt="none" id="model-cell">
+            </model-viewer>
+          </div>
+          <img src="img/star.svg" class="star-landing" alt="estela">
+          <div id="divsmob3"></div>
+          <span id="col-none"></br></br></br></br></br></br></br></span>
+        </div>
 
-      <div id="sidepiece">
-        <svg width="120" height="976" viewBox="0 0 120 976" fill="none" xmlns="http://www.w3.org/2000/svg" id="sp">
-          <path d="M0 0H19V976H0V0Z" fill="#1C2F22" />
-          <path d="M19 857C19 857 19 904 46.3101 941.5C64.7701 966.848 119.137 976 119.137 976H19V857Z"
-            fill="#1C2F22" />
+        <div id="projetos" class="projetos" style="display: none;">
+          <div class="container-title">
+            <div class="coluna-title">
+              <img src="img/Projetos.svg" alt="meus projetos">
+            </div>
+          </div>
+
+          <div class="bento" id="col-none">
+            <div class="bento__container" variant-1>
+              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1">
+                <a aria-label="eficientevisual">
+                  <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links1"></div>
+                  <section class="links">
+                    <div class="icons toggle-content" id="links1">
+                      <div class="coluna-icon">
+                        <a href="https://github.com/gusta-leite/EFIVI-LP" target="_blank" aria-label="github">
+                          <img src="img/git-icon2.svg" alt="github">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://www.behance.net/gallery/233366807/UI-Eficiente-Visual" target="_blank"
+                          aria-label="behance">
+                          <img src="img/beh-icon2.svg" alt="behance">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://eficientevisual.vercel.app/" target="_blank" aria-label="website">
+                          <img src="img/web-icon.svg" alt="website">
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
+                <a aria-label="rivota">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 1; --rows: span 2;" id="fill3" itemid="3">
+                <a href="https://bacate-todolist.vercel.app/" target="_blank" aria-label="bacate">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
+                <a aria-label="filhos de pelo">
+                  <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links3"></div>
+                  <section class="links">
+                    <div class="icons toggle-content" id="links3">
+                      <div class="coluna-icon">
+                        <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank"
+                          aria-label="behance">
+                          <img src="img/beh-icon2.svg" alt="behance">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a>
+                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://filhosdepelo.com/" target="_blank" aria-label="website">
+                          <img src="img/web-icon.svg" alt="website">
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </div>
+              <div class="bento__item" style=" --rows: span 5;" id="fill5" itemid="5">
+                <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
+                  aria-label="rações do pedrão">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6">
+                <a aria-label="night-march">
+                  <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links4"></div>
+                  <section class="links">
+                    <div class="icons toggle-content" id="links4">
+                      <div class="coluna-icon">
+                        <a href="https://github.com/gusta-leite/night-march" target="_blank" aria-label="github">
+                          <img src="img/git-icon2.svg" alt="github">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank"
+                          aria-label="behance">
+                          <img src="img/beh-icon2.svg" alt="behance">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://gusta-leite.github.io/night-march/" target="_blank" aria-label="website">
+                          <img src="img/web-icon.svg" alt="website">
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 1;--rows: span 3;" id="fill7" itemid="7">
+                <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
+                  aria-label="sonho gelado">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 1; --rows: span 20;" id="fill8" itemid="8">
+                <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank"
+                  aria-label="simply-flowers">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item" style="--columns: span 3;--rows: span 20;" id="fill9" itemid="9">
+                <a href="https://www.behance.net/gallery/201461509/UI-Aquario-Chalote" target="_blank"
+                  aria-label="chalote">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento2" id="col-none-pc">
+            <div class="bento__container2" variant-2>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill1">
+                <a aria-label="eficientevisual">
+                  <div style="height: 70%; width: 100%;"></div>
+                  <section class="linksmobs-s">
+                    <div class="icons" id="linksmobs">
+                      <div class="coluna-icon">
+                        <a href="https://github.com/gusta-leite/EFIVI-LP" target="_blank" aria-label="github">
+                          <img src="img/git-icon2.svg" alt="github">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://www.behance.net/gallery/233366807/UI-Eficiente-Visual" target="_blank"
+                          aria-label="behance">
+                          <img src="img/beh-icon2.svg" alt="behance">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://eficientevisual.vercel.app/" target="_blank" aria-label="website">
+                          <img src="img/web-icon.svg" alt="website">
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill2">
+                <a aria-label="rivota">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill3">
+                <a href="https://bacate-todolist.vercel.app/" target=" _blank" aria-label="bacate">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill4">
+                <a aria-label="filhos de pelo">
+                  <div style="height: 70%; width: 100%;"></div>
+                  <section class="linksmobs-s">
+                    <div class="icons" id="linksmobs">
+                      <div class="coluna-icon">
+                        <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank"
+                          aria-label="behance">
+                          <img src="img/beh-icon2.svg" alt="behance">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a>
+                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://filhosdepelo.com/" target="_blank" aria-label="website">
+                          <img src="img/web-icon.svg" alt="website">
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill5">
+                <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
+                  aria-label="rações do pedrão">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill6">
+                <a aria-label="night-march">
+                  <div style="height: 70%; width: 100%;"></div>
+                  <section class="linksmobs-s">
+                    <div class="icons" id="linksmobs">
+                      <div class="coluna-icon">
+                        <a href="hhttps://github.com/gusta-leite/night-march" target="_blank" aria-label="github">
+                          <img src="img/git-icon2.svg" alt="github">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank"
+                          aria-label="behance">
+                          <img src="img/beh-icon2.svg" alt="behance">
+                        </a>
+                      </div>
+                      <div class="coluna-icon">
+                        <a href="https://gusta-leite.github.io/night-march/" target="_blank" aria-label="website">
+                          <img src="img/web-icon.svg" alt="website">
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill7">
+                <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
+                  aria-label="sonho gelado">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill8">
+                <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank"
+                  aria-label="simply-flowers">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill9">
+                <a href="https://www.behance.net/gallery/201461509/UI-Aquario-Chalote" target="_blank"
+                  aria-label="chalote">
+                  <div style="height: 100%; width: 100%;"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-abt" id="colabt" style="display: none;">
+          </br>
+          <div class="coluna-abt" id="colabt-eu">
+            <img src="img/me.svg" alt="eu!">
+          </div>
+          <div class="coluna-abt">
+            <img src="img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -50px;" alt="estela">
+          </div>
+          <div class="coluna-abt">
+            <img src="img/text.svg" style="height: 90%" id="textcol" alt="texto">
+            <div class="icons">
+              <div class="coluna-icon">
+                <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
+                  <img src="img/lkd-icon.svg" alt="linkedin">
+                </a>
+              </div>
+              <div class="coluna-icon">
+                <a href="https://github.com/gusta-leite" target="_blank">
+                  <img src="img/git-icon.svg" alt="github">
+                </a>
+              </div>
+              <div class="coluna-icon">
+                <a href="https://www.behance.net/gustaleite/" target="_blank">
+                  <img src="img/beh-icon.svg" alt="behance">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="sidebar-left" id="sp">
+        <svg width="120" height="100%" viewBox="0 0 120 976" preserveAspectRatio="none" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0H19V976H0V0Z" fill="#1C2F22"></path>
+          <path d="M19 857C19 857 19 904 46.3101 941.5C64.7701 966.848 119.137 976 119.137 976H19V857Z" fill="#1C2F22">
+          </path>
         </svg>
       </div>
-      <div id="sidepiece2">
-        <svg width="119" height="976" viewBox="0 0 119 976" fill="none" xmlns="http://www.w3.org/2000/svg" id="sp">
+
+      <div class="sidebar-right" id="sp">
+        <svg width="119" height="100%" viewBox="0 0 119 976" preserveAspectRatio="none" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
           <path d="M100.137 857C100.137 857 100.137 904 72.8268 941.5C54.3668 966.848 0 976 0 976H100.137V857Z"
-            fill="#1C2F22" />
-          <path d="M100 0H119V976H100V0Z" fill="#1C2F22" />
+            fill="#1C2F22"></path>
+          <path d="M100 0H119V976H100V0Z" fill="#1C2F22"></path>
         </svg>
       </div>
+
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#inicio" class="nav-link"> home </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projetos" class="nav-link"> projetos </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sobre" class="nav-link"> sobre mim </a>
+          </li>
+        </ul>
+      </nav>
 
       <div class="divider">
         <p id="p"> o sonho de manter a internet viva segue vivo.</p>
       </div>
     </div>
 
-    <div id="divsmob2"></div>
-
-    <div id="projetos">
-      <div class="container-title">
-        <div class="coluna-title">
-          <img src="img/Projetos.svg">
-        </div>
-      </div>
-
-      <div class="bento" id="col-none">
-        <div class="bento__container" variant-1>
-          <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1">
-            <a>
-              <div style="height: 80%; width: 100%;" id="toggle"></div>
-              <section class="links">
-                <div class="icons" id="links">
-                  <div class="coluna-icon">
-                    <a href="https://github.com/gusta-leite/night-march" target="_blank">
-                      <img src="img/git-icon2.svg">
-                    </a>
-                  </div>
-                  <div class="coluna-icon">
-                    <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank">
-                      <img src="img/beh-icon2.svg">
-                    </a>
-                  </div>
-                  <div class="coluna-icon">
-                    <a href="https://gusta-leite.github.io/night-march/" target="_blank">
-                      <img src="img/web-icon.svg">
-                    </a>
-                  </div>
-                </div>
-              </section>
-            </a>
-          </div>
-          <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
-            <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item" style="--columns: span 1; --rows: span 2;" id="fill3" itemid="3">
-            <a href="https://bacate-todolist.vercel.app/" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
-            <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item" style=" --rows: span 3;" id="fill5" itemid="5">
-            <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6">
-            <a href="https://www.behance.net/gallery/201461509/UI-Aquario-Chalote" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item" style="--rows: span 3;" id="fill7"></div>
-
-          <div class="bento__item" style="--columns: span 1; --rows: span 15;" id="fill8" itemid="1">
-            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item" style="--columns: span 3; --rows: span 13;" id="fill9" itemid="2">
-            <!-- mudar columns depois -->
-            <a href="https://docelimao.vercel.app/" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <!--<div class="bento__item" style="--columns: span 2; --rows: span 13;" id="fill10" itemid="2">
-            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div> -->
-        </div>
-      </div>
-
-      <div class="bento2" id="col-none-pc">
-        <div class="bento__container2" variant-2>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill1">
-            <a>
-              <div style="height: 70%; width: 100%;"></div>
-              <section class="linksmobs-s">
-                <div class="icons" id="linksmobs">
-                  <div class="coluna-icon">
-                    <a href="https://github.com/gusta-leite/night-march" target="_blank">
-                      <img src="img/git-icon2.svg">
-                    </a>
-                  </div>
-                  <div class="coluna-icon">
-                    <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank">
-                      <img src="img/beh-icon2.svg">
-                    </a>
-                  </div>
-                  <div class="coluna-icon">
-                    <a href="https://gusta-leite.github.io/night-march/" target="_blank">
-                      <img src="img/web-icon.svg">
-                    </a>
-                  </div>
-                </div>
-              </section>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill2">
-            <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill3">
-            <a href="https://bacate-todolist.vercel.app/"" target=" _blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill4">
-            <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill5">
-            <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill6">
-            <a href="https://www.behance.net/gallery/201461509/UI-Aquario-Chalote" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill8">
-            <a href="https://www.behance.net/gallery/206549941/UI-simply-flowers" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-          <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill9">
-            <a href="https://docelimao.vercel.app/" target="_blank">
-              <div style="height: 100%; width: 100%;"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div id="col-none"> </br></br></br> </div>
-      <div id=".footernotshowoth"> </br> </div>
-
-      <div class="container-abt" id="colabt">
-        <div class="coluna-abt" id="colabt-eu">
-          <img src="img/me.svg">
-        </div>
-        <div class="coluna-abt">
-          <img src="img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -200px;">
-        </div>
-        <div class="coluna-abt">
-          <img src="img/text.svg" style="height: 80%" id="textcol">
-          <div class="icons">
-            <div class="coluna-icon">
-              <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
-                <img src="img/lkd-icon.svg">
-              </a>
-            </div>
-            <div class="coluna-icon">
-              <a href="https://github.com/gusta-leite" target="_blank">
-                <img src="img/git-icon.svg">
-              </a>
-            </div>
-            <div class="coluna-icon">
-              <a href="https://www.behance.net/gustaleite/" target="_blank">
-                <img src="img/beh-icon.svg">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="divsmob">
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <br /><br /><br />
-    </div>
-    <div id="divspc"></div>
-
-    <div id="footer">
       <footer class="logo">
-        <a href="https://wa.me/5517997373512" target="_blank">
-          <img src="img/logo-foot-mob.svg" id="logofin" class="footernotshowoth">
+        <a href="https://wa.me/5517996073702" target="_blank">
+          <img src="img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="logo">
           <button class="button">
             <span>me mande uma mensagem.</span>
           </button>
         </a>
         </br>
-        <img src="img/logo.svg" id="logofin" class="footernotshow">
+        <img src="img/logo.svg" id="logofin" class="footernotshow" alt="logo">
       </footer>
-    </div>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
   <script src="script.js"> </script>
 </body>

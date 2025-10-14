@@ -54,14 +54,6 @@ gsap.to(".star", {
   transformOrigin: "50% 50%"
 });
 
-gsap.to(".starload", {
-  rotation: 360,
-  duration: 5,
-  ease: "circ.inOut",
-  repeat: -1,
-  transformOrigin: "50% 50%"
-});
-
 gsap.to(".star-landing", {
   rotation: 360,
   duration: 12,
@@ -91,12 +83,18 @@ $$('.button').forEach(el => el.addEventListener('mouseleave', function () {
 }));
 
 // popup section
-const button = document.getElementById('toggle');
-const content = document.getElementById('links');
+const triggers = document.querySelectorAll('.js-toggle-trigger');
 
-button.addEventListener('click', () => {
-  content.classList.toggle('show');
+triggers.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const targetId = trigger.dataset.target;
+    const content = document.querySelector(targetId);
+    if (content) {
+      content.classList.toggle('show');
+    }
+  });
 });
+
 
 // animação
 function sleep(seconds) {
@@ -115,13 +113,27 @@ window.addEventListener('load', function () {
 
 // movement and loading
 
+let counterObject = {
+  value: 1
+};
+const counterElement = document.getElementById('counter');
+
+gsap.to(counterObject, {
+  value: 99,
+  duration: 2,
+  ease: "power1.out",
+  onUpdate: function () {
+    counterElement.textContent = Math.floor(counterObject.value);
+  }
+});
+
 function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 const loading = document.querySelector(".loading");
 
 window.addEventListener('load', function () {
-  sleep(1).then(() => {
+  sleep(2, 9).then(() => {
     loading.classList.add('hidden');
     setTimeout(() => {
       loading.style.display = 'none';
@@ -129,6 +141,16 @@ window.addEventListener('load', function () {
   });
 });
 
+// smooth scroll
+function smoothScrollGSAP(target, duration = 1.2, ease = "power2.inOut") {
+  gsap.registerPlugin(ScrollToPlugin);
+
+  gsap.to(window, {
+    duration: duration,
+    scrollTo: target,
+    ease: ease
+  });
+}
 // model viewer 3d tools
 
 const modelViewer = document.querySelector('model-viewer');
@@ -140,5 +162,91 @@ modelViewer.addEventListener('load', () => {
 
     modelViewer.cameraOrbit =
       `${orbit.theta}deg ${newPhi * (180 / Math.PI)}deg ${orbit.radius}%`;
+  });
+});
+
+// 
+
+function ajustarAlturaSidebars() {
+  const divider = document.querySelector('.divider');
+  const sidebars = document.querySelectorAll('.sidebar-right, .sidebar-left');
+
+  if (divider && sidebars.length > 0) {
+    const alturaIdeal = divider.offsetTop;
+
+    sidebars.forEach(elemento => {
+      elemento.style.height = `${alturaIdeal}px`;
+      elemento.style.marginTop = '0';
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const linkInicio = document.querySelector('a[href="#inicio"]');
+  const linkProjetos = document.querySelector('a[href="#projetos"]');
+  const linkSobre = document.querySelector('a[href="#sobre"]');
+  const secaoInicial = document.querySelector('.lp');
+  const secaoProjetos = document.getElementById('projetos');
+  const secaoSobre = document.getElementById('colabt');
+
+  linkInicio.addEventListener('click', function (event) {
+    event.preventDefault();
+    secaoProjetos.style.display = 'none';
+    secaoSobre.style.display = 'none';
+    secaoInicial.style.display = 'block';
+    setTimeout(ajustarAlturaSidebars, 0);
+  });
+
+  linkProjetos.addEventListener('click', function (event) {
+    event.preventDefault();
+    secaoInicial.style.display = 'none';
+    secaoSobre.style.display = 'none';
+    secaoProjetos.style.display = 'block';
+    setTimeout(ajustarAlturaSidebars, 0);
+  });
+
+  linkSobre.addEventListener('click', function (event) {
+    event.preventDefault();
+    secaoInicial.style.display = 'none';
+    secaoProjetos.style.display = 'none';
+    secaoSobre.style.display = 'flex';
+    setTimeout(ajustarAlturaSidebars, 0);
+  });
+
+  const modelViewer = document.querySelector('model-viewer');
+  if (modelViewer) {
+    modelViewer.addEventListener('load', ajustarAlturaSidebars);
+  } else {
+    window.addEventListener('load', ajustarAlturaSidebars);
+  }
+  const Projetossection = document.querySelector('projetos');
+  if (Projetossection) {
+    Projetossection.addEventListener('load', ajustarAlturaSidebars);
+  } else {
+    window.addEventListener('load', ajustarAlturaSidebars);
+  }
+});
+
+window.addEventListener('resize', ajustarAlturaSidebars);
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Disable right-click and drag on images
+  const images = document.querySelectorAll('img');
+
+  images.forEach(image => {
+    image.style.userSelect = 'none';
+    image.style.webkitUserSelect = 'none';
+    image.style.mozUserSelect = 'none';
+    image.style.msUserSelect = 'none';
+
+    image.style.webkitUserDrag = 'none';
+
+    image.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+    });
+
+    image.addEventListener('dragstart', (event) => {
+      event.preventDefault();
+    });
   });
 });
