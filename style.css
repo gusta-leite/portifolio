@@ -450,6 +450,7 @@ canvas {
 }
 
 .container-abt {
+  height: 65vh;
   position: relative;
   width: 90%;
   margin: 0 auto;
