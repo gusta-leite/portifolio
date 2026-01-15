@@ -14,7 +14,7 @@
 
   .lego-img {
     height: 55%;
-    margin-top: 17vh;
+    margin-top: 14vh;
   }
 
   .container-title img {
@@ -23,40 +23,51 @@
   }
 
   .container-abt {
-    top: 2vw;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  #colabt{
+    margin-top: -1;
+    height: 90%;
   }
 
   .container-abt img {
-    max-width: 90%;
+    max-width: 85%;
   }
 
-  #textcol {
+  .coluna-abt:has(#col-none) {
+    display: none;
+  }
+
+  .textcol {
     height: 100%;
+    margin-top: -9vw;
   }
 
   .icons {
-    min-height: 25%;
+    min-height: 15%;
     max-width: 80%;
     top: 2.2vw;
   }
 
-  #p {
-    font-size: 4vw;
-    top: 0.8vw;
+  p {
+    font-size: 3vw;
+    top: 1.3vw;
   }
 
   .button {
     background-color: var(--color-main-black);
     border: 0;
-    padding: 10px;
-    width: 12rem;
+    padding: 1vw;
+    width: 9rem;
     height: 40px;
     border-radius: 3vw;
     font-family: 'Urbanist', 'Open Sans';
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: var(--color-main-white);
     margin-left: 24vh;
     margin-top: -5vh;
@@ -90,7 +101,7 @@
 
   #logofin {
     width: 80%;
-    margin-left: -4rem;
+    margin-left: -2rem;
     margin-top: 2rem;
   }
 
@@ -100,6 +111,7 @@
 
   #logocomoth {
     width: 100%;
+    margin-top: -2.5vh;
   }
 
   .text {
@@ -114,22 +126,22 @@
   #model-cell {
     width: 100%;
     height: 110%;
-    top: 7vh;
+    top: 6.5vh;
     z-index: 2;
   }
 
   .star-landing {
     position: absolute;
-    width: 60%;
-    height: 60%;
-    z-index: 1;
-    top: 76%;
+    width: 55%;
+    height: 55%;
+    z-index: -1;
+    top: 74%;
     left: 53%;
     transform: translate(-50%, -50%);
   }
 
   .nav-link {
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .loading {
@@ -150,13 +162,27 @@
     height: 80vw;
   }
 
+  nav {
+    z-index: 100;
+  }
+
   .nav-list {
     margin-left: 10rem;
+  }
+
+  select {
+    font-size: 3vw;
+    height: 40%;
+  }
+
+  select option {
+    font-size: 3vw;
   }
 
   #projetos {
     margin-bottom: 17rem;
   }
+
 }
 
 @media (min-width: 768px) {
@@ -267,6 +293,19 @@
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 2.2vw;
   }
+
+  select {
+    font-size: 1vw;
+    height: 90%;
+  }
+
+  select option {
+    font-size: 1vw;
+  }
+
+  p {
+    font-size: 1.5vw;
+  }
 }
 
 /* body css */
@@ -279,7 +318,7 @@ body {
   background-color: var(--color-main-black);
 
   /*colors */
-  --color-main-black: #1A1C19;
+  --color-main-black: #0D0D0D;
   --color-main-white: #fdf9ee;
   --color-main-green: #1c2f22;
   --color-main-red: #39393A;
@@ -287,7 +326,6 @@ body {
 
 p {
   color: var(--color-main-white);
-  font-size: 1.5vw;
   font-family: 'Urbanist', 'Open Sans';
   position: relative;
   margin-top: 0.7%;
@@ -386,6 +424,25 @@ canvas {
   text-decoration: none;
 }
 
+select {
+  color: var(--color-main-white);
+  font-family: 'Urbanist', 'Open Sans';
+  width: 110%;
+  position: relative;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+select option {
+  background-color: var(--color-main-black);
+  color: var(--color-main-white);
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
 .divider {
   display: flex;
   justify-content: center;
@@ -409,7 +466,7 @@ canvas {
 }
 
 .loading.hidden {
-  transform: translateY(30rem);
+  transform: translateY(100vh);
   background: none;
   opacity: 0;
 }
@@ -473,7 +530,7 @@ canvas {
 }
 
 .icons {
-  background-color: var(--color-main-black);
+  background-color: #1A1C19;
   position: relative;
   width: 100%;
   border-radius: 7px;
@@ -550,7 +607,24 @@ canvas {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.toggle-content-oth {
+  height: 20%;
+  width: 80%;
+  grid-template-columns: repeat(1, 1fr 1fr 1fr 1fr 1fr);
+  border-radius: 1rem 1rem 0 0;
+  opacity: 0;
+  gap: 1ch;
+  visibility: hidden;
+  margin: 0 auto;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .toggle-content.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toggle-content-oth.show {
   opacity: 1;
   visibility: visible;
 }
@@ -560,20 +634,25 @@ canvas {
   width: 50%;
 }
 
+.toggle-content-oth img {
+  align-items: center;
+  width: 50%;
+}
+
 #fill2 {
-  background-image: url(img/projects/rivota.avif);
+  background-image: url(img/projects/iaplat.avif);
   background-position: center;
   background-size: cover;
 }
 
 #fill3 {
-  background-image: url(img/projects/bacate.avif);
+  background-image: url(img/projects/erp.avif);
   background-position: center;
   background-size: cover;
 }
 
 #fill4 {
-  background-image: url(img/projects/projong.avif);
+  background-image: url(img/projects/rivota.avif);
   background-position: center;
   background-size: cover;
 }
@@ -591,19 +670,19 @@ canvas {
 }
 
 #fill7 {
-  background-image: url(img/projects/sonhg.avif);
+  background-image: url(img/projects/projong.avif);
   background-position: center;
   background-size: cover;
 }
 
 #fill8 {
-  background-image: url(img/projects/simflow.avif);
+  background-image: url(img/projects/bacate.avif);
   background-position: center;
   background-size: cover;
 }
 
 #fill9 {
-  background-image: url(img/projects/chalote.avif);
+  background-image: url(img/projects/sonhg.avif);
   background-position: center;
   background-size: cover;
 }

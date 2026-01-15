@@ -22,7 +22,6 @@ gsap.set(".curproj, .curprojmini", { xPercent: -50, yPercent: -50, opacity: 0 })
 
 let xToSelect = gsap.quickTo(".curproj", "x", { duration: 0.4, ease: "power3" }),
   yToSelect = gsap.quickTo(".curproj", "y", { duration: 0.4, ease: "power3" });
-
 let xToSelectmini = gsap.quickTo(".curprojmini", "x", { duration: 0.6, ease: "power3" }),
   yToSelectmini = gsap.quickTo(".curprojmini", "y", { duration: 0.6, ease: "power3" });
 
@@ -86,6 +85,18 @@ $$('.button').forEach(el => el.addEventListener('mouseleave', function () {
 const triggers = document.querySelectorAll('.js-toggle-trigger');
 
 triggers.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const targetId = trigger.dataset.target;
+    const content = document.querySelector(targetId);
+    if (content) {
+      content.classList.toggle('show');
+    }
+  });
+});
+
+const triggers2 = document.querySelectorAll('.js-toggle-trigger-oth');
+
+triggers2.forEach(trigger => {
   trigger.addEventListener('click', () => {
     const targetId = trigger.dataset.target;
     const content = document.querySelector(targetId);
