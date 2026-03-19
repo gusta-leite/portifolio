@@ -483,7 +483,7 @@ select option {
 
 #projetos {
   position: relative;
-  height: 130vh;
+  height: 90vh;
   width: 100%;
   margin-top: 3rem;
 }
@@ -555,7 +555,7 @@ select option {
 }
 
 .bento {
-  min-block-size: 90vh;
+  min-block-size: 80vh;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -565,7 +565,7 @@ select option {
 
 .bento__container {
   display: grid;
-  grid-template-rows: 5fr 1fr 1fr 3fr 4fr 6fr 1fr;
+  grid-template-rows: 5fr 1fr 1fr 3fr 4fr 6fr;
   gap: 2ch;
   min-height: inherit;
   flex: 2 0 320px;
@@ -646,7 +646,7 @@ select option {
 }
 
 #fill3 {
-  background-image: url(img/projects/erp.avif);
+  background-image: url();
   background-position: center;
   background-size: cover;
 }
@@ -676,13 +676,13 @@ select option {
 }
 
 #fill8 {
-  background-image: url(img/projects/bacate.avif);
+  background-image: url();
   background-position: center;
   background-size: cover;
 }
 
 #fill9 {
-  background-image: url(img/projects/sonhg.avif);
+  background-image: url(img/projects/sonhog.avif);
   background-position: center;
   background-size: cover;
 }
