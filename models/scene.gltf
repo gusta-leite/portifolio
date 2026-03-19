@@ -742,7 +742,7 @@
       "author": "gusta.boo (https://sketchfab.com/gusta.boo)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
       "source": "https://sketchfab.com/3d-models/myself-for-portifolio-271cccaa94614ac6ae3f93e7be11ce2c",
-      "title": "Myself - for portifólio"
+      "title": "Myself - for portif\u00f3lio"
     },
     "generator": "Sketchfab-16.64.0",
     "version": "2.0"
@@ -775,9 +775,9 @@
       "name": "SOLID-BLACK",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.006603462635740141,
-          0.03211678107866635,
-          0.05069978786842341,
+          0.003235,
+          0.015737,
+          0.024843,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -789,9 +789,9 @@
       "name": "METAL-SILVER",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.643137,
-          0.658824,
-          0.701961,
+          0.578823,
+          0.592942,
+          0.631765,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -803,9 +803,9 @@
       "name": "SOLID-WHITE",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.996078,
-          0.996078,
-          0.996078,
+          0.89647,
+          0.89647,
+          0.89647,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -817,9 +817,9 @@
       "name": "SOLID-DARK_RED",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.5122777758914668,
-          0.009967452762488173,
-          0.009967452762488173,
+          0.46105,
+          0.008971,
+          0.008971,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -831,9 +831,9 @@
       "name": "SOLID-FABULAND_BROWN",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.5259626372216948,
-          0.19907262942260381,
-          0.1082949019493025,
+          0.624843,
+          0.236498,
+          0.128654,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -845,9 +845,9 @@
       "name": "SOLID-BROWN",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.19885960249848839,
-          0.07710392182180963,
-          0.02657732222040873,
+          0.236246,
+          0.0916,
+          0.031574,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -859,9 +859,9 @@
       "name": "RUBBER-BLACK",
       "pbrMetallicRoughness": {
         "baseColorFactor": [
-          0.013725298159263362,
-          0.01261244595138978,
-          0.01261244595138978,
+          0.006053,
+          0.005562,
+          0.005562,
           1.0
         ],
         "metallicFactor": 0.0,
@@ -1194,7 +1194,7 @@
         0.0,
         -21.9373837,
         362.370941,
-        382.35040299999997,
+        382.350403,
         1.0
       ],
       "name": "Light_Node_2"
@@ -1221,7 +1221,7 @@
         0.0,
         -21.9373837,
         362.370941,
-        382.35040299999997,
+        382.350403,
         1.0
       ],
       "name": "Light_Node_1"
@@ -1248,7 +1248,7 @@
         0.0,
         -21.9373837,
         362.370941,
-        382.35040299999997,
+        382.350403,
         1.0
       ],
       "name": "Camera_Node"
@@ -1485,7 +1485,7 @@
         0.0,
         -0.0646060035,
         0.691092014,
-        0.6912750009999999,
+        0.691275001,
         0.0,
         -0.0130270002,
         -0.701550007,
@@ -1552,7 +1552,7 @@
         -0.185245007,
         0.0,
         -0.245648995,
-        -0.7892550230000001,
+        -0.789255023,
         0.547288001,
         0.0,
         -0.0547659993,
