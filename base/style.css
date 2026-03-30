@@ -30,7 +30,7 @@
     height: auto;
   }
 
-  #colabt{
+  #colabt {
     margin-top: -1;
     height: 90%;
   }
@@ -111,7 +111,7 @@
 
   #logocomoth {
     width: 100%;
-    margin-top: -2.5vh;
+    margin-top: -50%;
   }
 
   .text {
@@ -126,7 +126,7 @@
   #model-cell {
     width: 100%;
     height: 110%;
-    top: 6.5vh;
+    top: 15%;
     z-index: 2;
   }
 
@@ -135,7 +135,7 @@
     width: 55%;
     height: 55%;
     z-index: -1;
-    top: 74%;
+    top: 70%;
     left: 53%;
     transform: translate(-50%, -50%);
   }
@@ -196,7 +196,7 @@
     width: 100%;
     height: 95%;
     top: 0%;
-    margin-top: -25vh;
+    margin-top: -20vh;
     z-index: 2;
     transition: transform 1s ease, opacity 0.2s ease;
     opacity: 0;
@@ -257,10 +257,10 @@
 
   .star-landing {
     position: absolute;
-    width: 55%;
-    height: 55%;
+    width: clamp(20%, 35vw, 40%);
+    height: clamp(20%, 35vw, 40%);
     z-index: 1;
-    top: 52%;
+    top: clamp(55%, 58%, 72%);
     left: 51%;
     transform: translate(-50%, -50%);
   }
@@ -306,6 +306,11 @@
   p {
     font-size: 1.5vw;
   }
+
+  .landing {
+    margin-top: -5rem;
+    padding-top: 4rem;
+  }
 }
 
 /* body css */
@@ -340,43 +345,44 @@ canvas {
   display: block;
 }
 
+#dot-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.landing {
+  position: relative;
+  z-index: 1;
+}
+
 /* section - landing css */
 
-.cursor {
-  mix-blend-mode: exclusion;
-  background-color: #000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.cursor2 {
-  mix-blend-mode: exclusion;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 4;
-}
-
-.curproj {
-  mix-blend-mode: exclusion;
-  background-color: #000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 5;
-}
-
+.cursor,
+.cursor2,
+.curproj,
 .curprojmini {
   mix-blend-mode: exclusion;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
+}
+
+.cursor,
+.curproj {
+  background-color: #000;
+  z-index: 5;
+}
+
+.cursor2,
+.curprojmini {
   z-index: 4;
 }
 
@@ -384,7 +390,7 @@ canvas {
   position: absolute;
   left: 5%;
   right: 5%;
-  top: 0;
+  top: 8%;
 }
 
 .sidebar-left {
@@ -589,102 +595,85 @@ select option {
   border-radius: 1rem;
 }
 
-#fill1 {
-  background-image: url(img/projects/efivi.avif);
+#fill1,
+#fill2,
+#fill3,
+#fill4,
+#fill5,
+#fill6,
+#fill7,
+#fill8,
+#fill9 {
   background-position: center;
   background-size: cover;
+}
+
+#fill1 {
+  background-image: url(img/projects/efivi.avif);
+}
+
+#fill2 {
+  background-image: url(img/projects/iaplat.avif);
+}
+
+#fill3 {
+  background-image: url();
+}
+
+#fill4 {
+  background-image: url(img/projects/rivota.avif);
+}
+
+#fill5 {
+  background-image: url(img/projects/racao.avif);
+}
+
+#fill6 {
+  background-image: url(img/projects/night-march.avif);
+}
+
+#fill7 {
+  background-image: url(img/projects/projong.avif);
+}
+
+#fill8 {
+  background-image: url();
+}
+
+#fill9 {
+  background-image: url(img/projects/sonhog.avif);
+}
+
+.toggle-content,
+.toggle-content-oth {
+  grid-template-columns: repeat(5, 1fr);
+  border-radius: 1rem 1rem 0 0;
+  opacity: 0;
+  gap: 1ch;
+  visibility: hidden;
+  margin: 0 auto;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .toggle-content {
   height: 20%;
   width: 30%;
-  grid-template-columns: repeat(1, 1fr 1fr 1fr 1fr 1fr);
-  border-radius: 1rem 1rem 0 0;
-  opacity: 0;
-  gap: 1ch;
-  visibility: hidden;
-  margin: 0 auto;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .toggle-content-oth {
   height: 20%;
   width: 80%;
-  grid-template-columns: repeat(1, 1fr 1fr 1fr 1fr 1fr);
-  border-radius: 1rem 1rem 0 0;
-  opacity: 0;
-  gap: 1ch;
-  visibility: hidden;
-  margin: 0 auto;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.toggle-content.show {
-  opacity: 1;
-  visibility: visible;
-}
-
+.toggle-content.show,
 .toggle-content-oth.show {
   opacity: 1;
   visibility: visible;
 }
 
-.toggle-content img {
-  align-items: center;
-  width: 50%;
-}
-
+.toggle-content img,
 .toggle-content-oth img {
-  align-items: center;
   width: 50%;
-}
-
-#fill2 {
-  background-image: url(img/projects/iaplat.avif);
-  background-position: center;
-  background-size: cover;
-}
-
-#fill3 {
-  background-image: url();
-  background-position: center;
-  background-size: cover;
-}
-
-#fill4 {
-  background-image: url(img/projects/rivota.avif);
-  background-position: center;
-  background-size: cover;
-}
-
-#fill5 {
-  background-image: url(img/projects/racao.avif);
-  background-position: center;
-  background-size: cover;
-}
-
-#fill6 {
-  background-image: url(img/projects/night-march.avif);
-  background-position: center;
-  background-size: cover;
-}
-
-#fill7 {
-  background-image: url(img/projects/projong.avif);
-  background-position: center;
-  background-size: cover;
-}
-
-#fill8 {
-  background-image: url();
-  background-position: center;
-  background-size: cover;
-}
-
-#fill9 {
-  background-image: url(img/projects/sonhog.avif);
-  background-position: center;
-  background-size: cover;
 }
 
 .bento2 {
@@ -739,6 +728,70 @@ footer {
   width: 100%;
   margin: 0%;
   position: relative;
+  z-index: 1;
   bottom: 0;
   background-color: var(--color-main-green);
+}
+
+/* 404 */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.container-404 {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.h404 {
+  font-size: clamp(6rem, 20vw, 14rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-main-white);
+  font-family: 'Outfit', sans-serif;
+}
+
+.text404 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  opacity: 0.6;
+  letter-spacing: 0.02em;
+}
+
+.linkretorno {
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 500;
+  color: var(--color-main-white);
+  border-bottom: 1px solid #FDF9EE4D;
+  padding-bottom: 2px;
+  font-family: 'Urbanist', 'Open Sans';
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  transform-origin: center center;
 }

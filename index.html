@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gustavo Leite Portfólio — UX design e desenvolvimento web.">
   <title>gustavo's portfolio</title>
 
 
@@ -15,9 +16,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.min.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
@@ -26,7 +27,7 @@
 
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <script type="text/javascript">
+  <script async type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
       t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
@@ -49,7 +50,9 @@
 <body>
   <main>
 
-    <section> <!-- Cursores-->
+    <canvas id="dot-grid"></canvas>
+
+    <div> <!-- Cursores-->
       <div class="cursor">
         <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g style="mix-blend-mode:exclusion">
@@ -86,7 +89,7 @@
           </g>
         </svg>
       </div>
-    </section>
+    </div>
 
     <div class="loading" style="display: block;">
       <div id="counter">1</div>
@@ -103,7 +106,7 @@
           </div>
           <div class="lego-img">
             <model-viewer src="models/scene.gltf" camera-controls disable-tap disable-pan disable-zoom
-              camera-orbit="05deg 90deg 105%" orbit-sensitivity="1" field-of-view="35deg" environment-image="neutral" tone-mapping="aces"
+              camera-orbit="05deg 90deg 105%" orbit-sensitivity="0.39" field-of-view="35deg" environment-image="neutral" tone-mapping="aces"
               exposure="0.35" interaction-prompt="none" id="model-pc">
             </model-viewer>
 
@@ -114,7 +117,7 @@
           </div>
           <img src="img/star.svg" class="star-landing" alt="estela">
           <div id="divsmob3"></div>
-          <span id="col-none"></br></br></br></br></br></br></br></span>
+          <span id="col-none"><br><br><br><br><br><br><br></span>
         </div>
 
         <div id="projetos" class="projetos" style="display: none;">
@@ -417,9 +420,8 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="script.js"> </script>
-  <script src="translations.js"> </script>
+  <script src="script.min.js"></script>
+  <script src="translations.min.js"> </script>
 </body>
 
 </html>
