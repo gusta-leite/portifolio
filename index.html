@@ -73,9 +73,9 @@
       </div>
     </div>
 
-    <div class="loading" style="display: block;">
-      <div id="counter">1</div>
-      <div class="loading-bg"> </div>
+    <div class="loading" style="display: block; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
+      <canvas id="loading-canvas"></canvas>
+      <div id="counter" style="display: none;">1</div>
     </div>
 
     <div class="landing">
@@ -402,6 +402,235 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script> // loading animation
+  'use strict';
+  (function () {
+    const canvas = document.getElementById('loading-canvas');
+    const ctx    = canvas.getContext('2d');
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const W = canvas.width, H = canvas.height;
+
+    const SP   = 6;
+    const COLS = Math.ceil(W / SP) + 2;
+    const ROWS = Math.ceil(H / SP) + 2;
+    const N    = COLS * ROWS;
+    const DR   = 0.76;
+    const BASE = 0.08;
+
+    const GX = (W - COLS * SP) * 0.5;
+    const GY = (H - ROWS * SP) * 0.5;
+
+    const bright = new Float32Array(N).fill(BASE);
+    const locked = new Uint8Array(N);
+    const zone   = new Uint8Array(N);
+
+    const CX  = (COLS - 1) * 0.5;
+    const CY  = (ROWS - 1) * 0.5;
+    const NP  = 12;
+    const ROT = -Math.PI * 0.5;
+
+    function starEdge(ang, R, r) {
+      const sec  = (Math.PI * 2) / NP;
+      const a    = ((ang - ROT) % sec + sec) % sec;
+      const half = sec * 0.5;
+      const t    = Math.min(a, sec - a) / half;
+      return r + (R - r) * (1 - t);
+    }
+    const inStar = (dx, dy, R, r) =>
+      Math.hypot(dx, dy) <= starEdge(Math.atan2(dy, dx), R, r);
+
+    for (let i = 0; i < N; i++) {
+      const dx = (i % COLS) - CX;
+      const dy = ((i / COLS) | 0) - CY;
+      if      (inStar(dx, dy, 13.5, 10))   zone[i] = 3;
+      else if (inStar(dx, dy, 17.5, 11.5)) zone[i] = 2;
+      else if (inStar(dx, dy, 22.5, 14))   zone[i] = 1;
+    }
+
+    const ZC = [null, [218, 62, 48], [58, 80, 212], [228, 172, 52]];
+    const rc = (r, g, b, a) => `rgba(${r},${g},${b},${a})`;
+    const zc = (z, a)       => rc(...ZC[z], a);
+
+    function dotXY(i) {
+      return [
+        GX + (i % COLS) * SP + SP * 0.5,
+        GY + ((i / COLS) | 0) * SP + SP * 0.5
+      ];
+    }
+
+    const starDots = [];
+    for (let i = 0; i < N; i++) {
+      if (!zone[i]) continue;
+      const dx   = (i % COLS) - CX;
+      const dy   = ((i / COLS) | 0) - CY;
+      starDots.push({ i, dist: Math.hypot(dx, dy) });
+    }
+    starDots.sort((a, b) => a.dist - b.dist);
+    const TOTAL = starDots.length;
+
+    const ZB = [0, 0.36, 0.44, 0.55];
+
+    function lightDot(i) {
+      if (locked[i]) return;
+      locked[i] = 1;
+      const target = ZB[zone[i]];
+      const obj    = { v: bright[i] };
+      gsap.to(obj, {
+        v: target * 1.6,
+        duration: 0.07 + Math.random() * 0.06,
+        ease: 'power3.out',
+        onUpdate()  { bright[i] = obj.v; },
+        onComplete() {
+          gsap.to(obj, {
+            v: target,
+            duration: 0.2 + Math.random() * 0.18,
+            ease: 'sine.inOut',
+            onUpdate()  { bright[i] = obj.v; },
+            onComplete() { locked[i] = 0; }
+          });
+        }
+      });
+    }
+
+    const counter = { value: 0 };
+    let lastLit   = 0;
+    const lp      = { p: 0 };
+
+    function startLoad() {
+      lastLit       = 0;
+      lp.p          = 0;
+      counter.value = 0;
+      for (let i = 0; i < N; i++) {
+        if (zone[i]) { bright[i] = BASE * 0.35; locked[i] = 0; }
+      }
+
+      gsap.to(counter, {
+        value: 99,
+        duration: 2.5,
+        ease: 'power1.inOut',
+        snap: { value: 1 }
+      });
+
+      gsap.to(lp, {
+        p: TOTAL,
+        duration: 2.5,
+        ease: 'power1.inOut',
+        onUpdate() {
+          const tgt = Math.round(lp.p);
+          while (lastLit < tgt) lightDot(starDots[lastLit++].i);
+        }
+      });
+    }
+
+    (function bgLoop() {
+      const c = Math.floor(Math.random() * COLS);
+      const r = Math.floor(Math.random() * ROWS);
+      const i = r * COLS + c;
+      if (!zone[i] && !locked[i]) {
+        locked[i] = 1;
+        const obj = { v: BASE };
+        gsap.to(obj, {
+          v: BASE + 0.04 + Math.random() * 0.09,
+          duration: 0.22 + Math.random() * 0.44,
+          yoyo: true, repeat: 1, ease: 'sine.inOut',
+          onUpdate()  { bright[i] = obj.v; },
+          onComplete() { bright[i] = BASE; locked[i] = 0; }
+        });
+      }
+      gsap.delayedCall(0.1 + Math.random() * 0.18, bgLoop);
+    })();
+
+    startLoad();
+
+    function render() {
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = 'rgba(195,190,182,0.10)';
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        if (!zone[i] && bright[i] < 0.15) {
+          const [x, y] = dotXY(i);
+          ctx.moveTo(x + DR, y);
+          ctx.arc(x, y, DR, 0, Math.PI * 2);
+        }
+      }
+      ctx.fill();
+
+      for (let z = 1; z <= 3; z++) {
+        ctx.fillStyle = zc(z, 0.055);
+        ctx.beginPath();
+        for (let i = 0; i < N; i++) {
+          if (zone[i] === z && bright[i] < 0.15) {
+            const [x, y] = dotXY(i);
+            ctx.moveTo(x + DR, y);
+            ctx.arc(x, y, DR, 0, Math.PI * 2);
+          }
+        }
+        ctx.fill();
+      }
+
+      ctx.globalCompositeOperation = 'lighter';
+      for (let i = 0; i < N; i++) {
+        const b = bright[i];
+        if (b < 0.15) continue;
+        const [x, y] = dotXY(i);
+        const gR  = DR * 1.5 + b * 5.8;
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, gR);
+        const z   = zone[i];
+        if (!z) {
+          grd.addColorStop(0,    `rgba(248,244,236,${b * 0.19})`);
+          grd.addColorStop(0.28, `rgba(210,203,190,${b * 0.09})`);
+          grd.addColorStop(0.62, `rgba(162,155,144,${b * 0.03})`);
+          grd.addColorStop(1,    'rgba(90,86,80,0)');
+        } else {
+          const [r, g, bl] = ZC[z];
+          grd.addColorStop(0,    rc(r, g, bl, b * 0.28));
+          grd.addColorStop(0.3,  rc(r, g, bl, b * 0.12));
+          grd.addColorStop(0.65, rc(r, g, bl, b * 0.038));
+          grd.addColorStop(1,    rc(r, g, bl, 0));
+        }
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(x, y, gR, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
+      for (let i = 0; i < N; i++) {
+        const b = bright[i];
+        if (b < 0.15) continue;
+        const [x, y] = dotXY(i);
+        const z = zone[i];
+        if (!z) {
+          ctx.fillStyle = `rgba(255,252,244,${Math.min(1, b * 1.15)})`;
+        } else {
+          const [r, g, bl] = ZC[z];
+          ctx.fillStyle = rc(r, g, bl, Math.min(1, b * 1.1));
+        }
+        ctx.beginPath();
+        ctx.arc(x, y, DR * (1.05 + b * 0.36), 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.font         = '400 62px "Urbanist", sans-serif';
+      ctx.textAlign    = 'center';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillStyle    = 'rgba(238,228,208,0.86)';
+      ctx.fillText(
+        String(Math.round(counter.value)).padStart(2, '0'),
+        W * 0.5,
+        H * 0.5 + 22.5 * SP + 76
+      );
+
+      requestAnimationFrame(render);
+    }
+
+    render();
+  })();
+  </script>
   <script src="script.min.js"></script>
   <script src="translations.min.js"></script>
   <script>

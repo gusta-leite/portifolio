@@ -332,7 +332,7 @@ body {
 
   /*colors */
   --color-main-black: #0D0D0D;
-  --color-main-white: #fdf9ee;
+  --color-main-white: #FFF2DC;
   --color-main-green: #1c2f22;
   --color-main-red: #39393A;
 }
@@ -351,6 +351,10 @@ a {
 
 canvas {
   display: block;
+}
+
+@view-transition {
+    navigation: auto;
 }
 
 #dot-grid {

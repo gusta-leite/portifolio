@@ -30,7 +30,7 @@ window.addEventListener("mousemove", (e) => {
   yToSelectmini(e.clientY);
 });
 
-document.querySelectorAll(".bento__item, .language-selector, .button").forEach((item) => {
+document.querySelectorAll(".bento__item, .language-selector, .button, .text404").forEach((item) => {
   item.addEventListener("mouseleave", () => {
     gsap.to(".curproj, .curprojmini", { opacity: 0, duration: 0.2 });
     gsap.to(".cursor, .cursor2", { opacity: 1, duration: 0.2 });
