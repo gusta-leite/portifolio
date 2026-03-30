@@ -9,14 +9,6 @@ let xToCursor = gsap.quickTo(".cursor", "x", { duration: 0.4, ease: "power3" }),
 let xToCursor2 = gsap.quickTo(".cursor2", "x", { duration: 0.6, ease: "power3" }),
   yToCursor2 = gsap.quickTo(".cursor2", "y", { duration: 0.6, ease: "power3" });
 
-window.addEventListener("mousemove", (e) => {
-  xToCursor(e.clientX);
-  yToCursor(e.clientY);
-
-  xToCursor2(e.clientX);
-  yToCursor2(e.clientY);
-});
-
 //
 gsap.set(".curproj, .curprojmini", { xPercent: -50, yPercent: -50, opacity: 0 });
 
@@ -25,14 +17,20 @@ let xToSelect = gsap.quickTo(".curproj", "x", { duration: 0.4, ease: "power3" })
 let xToSelectmini = gsap.quickTo(".curprojmini", "x", { duration: 0.6, ease: "power3" }),
   yToSelectmini = gsap.quickTo(".curprojmini", "y", { duration: 0.6, ease: "power3" });
 
-document.querySelectorAll(".bento__item").forEach((item) => {
-  item.addEventListener("mousemove", (e) => {
-    xToSelect(e.clientX);
-    yToSelect(e.clientY);
-    xToSelectmini(e.clientX);
-    yToSelectmini(e.clientY);
-  });
+window.addEventListener("mousemove", (e) => {
+  xToCursor(e.clientX);
+  yToCursor(e.clientY);
 
+  xToCursor2(e.clientX);
+  yToCursor2(e.clientY);
+
+  xToSelect(e.clientX);
+  yToSelect(e.clientY);
+  xToSelectmini(e.clientX);
+  yToSelectmini(e.clientY);
+});
+
+document.querySelectorAll(".bento__item, .language-selector, .button").forEach((item) => {
   item.addEventListener("mouseleave", () => {
     gsap.to(".curproj, .curprojmini", { opacity: 0, duration: 0.2 });
     gsap.to(".cursor, .cursor2", { opacity: 1, duration: 0.2 });
@@ -138,13 +136,10 @@ gsap.to(counterObject, {
   }
 });
 
-function sleep(seconds) {
-  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
-}
 const loading = document.querySelector(".loading");
 
 window.addEventListener('load', function () {
-  sleep(2, 9).then(() => {
+  sleep(2.9).then(() => {
     loading.classList.add('hidden');
     setTimeout(() => {
       loading.style.display = 'none';
@@ -167,6 +162,11 @@ function smoothScrollGSAP(target, duration = 1.2, ease = "power2.inOut") {
 const modelViewer = document.querySelector('model-viewer');
 if (modelViewer) {
   modelViewer.addEventListener('load', () => {
+    if (modelViewer.shadowRoot) {
+      const style = document.createElement('style');
+      style.textContent = '* { cursor: none !important; }';
+      modelViewer.shadowRoot.appendChild(style);
+    }
     modelViewer.addEventListener('camera-change', () => {
       const orbit = modelViewer.getCameraOrbit();
       const targetPhi = 75 * (Math.PI / 180);
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.addEventListener('resize', ajustarAlturaSidebars);
 
-// dot grid background
+// dot grid background -  made by me + claude code
 (function () {
   const canvas = document.getElementById('dot-grid');
   const ctx    = canvas.getContext('2d');
@@ -251,9 +251,11 @@ window.addEventListener('resize', ajustarAlturaSidebars);
   const SP   = 8;
   const DR   = 0.82;
   const BASE = 0.115;
+  const GLOW_THRESHOLD = 0.18;
 
   let W, H, COLS, ROWS, N, bright, locked;
   let logoPX = 0, logoPY = 0;
+  let staticCanvas = null;
 
   const C = {
     dimDot : 'rgba(195,190,182, 0.130)',
@@ -263,6 +265,50 @@ window.addEventListener('resize', ajustarAlturaSidebars);
     core   : a => `rgba(255,252,244,${a})`,
   };
 
+  const tweenPool = [];
+
+  function easeOut(t) { return 1 - (1 - t) * (1 - t); }
+  function easeSine(t) { return 0.5 - 0.5 * Math.cos(t * Math.PI); }
+
+  function addTween(i, peak, totalDuration, delay) {
+    tweenPool.push({ i, peak, totalDuration, delay: delay || 0, elapsed: 0 });
+  }
+
+  function updateTweens(dtSec) {
+    for (let j = tweenPool.length - 1; j >= 0; j--) {
+      const tw = tweenPool[j];
+      if (tw.delay > 0) { tw.delay -= dtSec; continue; }
+      tw.elapsed += dtSec;
+      const half = tw.totalDuration * 0.5;
+      if (tw.elapsed < half) {
+        bright[tw.i] = BASE + (tw.peak - BASE) * easeOut(tw.elapsed / half);
+      } else if (tw.elapsed < tw.totalDuration) {
+        bright[tw.i] = tw.peak - (tw.peak - BASE) * easeOut((tw.elapsed - half) / half);
+      } else {
+        bright[tw.i] = BASE;
+        locked[tw.i] = 0;
+        tweenPool[j] = tweenPool[tweenPool.length - 1];
+        tweenPool.pop();
+      }
+    }
+  }
+
+  function buildStaticGrid() {
+    staticCanvas = document.createElement('canvas');
+    staticCanvas.width  = W;
+    staticCanvas.height = H;
+    const sCtx = staticCanvas.getContext('2d');
+    sCtx.fillStyle = C.dimDot;
+    sCtx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const col = i % COLS, row = (i / COLS) | 0;
+      const x = col * SP + SP * 0.5, y = row * SP + SP * 0.5;
+      sCtx.moveTo(x + DR, y);
+      sCtx.arc(x, y, DR, 0, Math.PI * 2);
+    }
+    sCtx.fill();
+  }
+
   function initGrid() {
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
@@ -271,6 +317,8 @@ window.addEventListener('resize', ajustarAlturaSidebars);
     N      = COLS * ROWS;
     bright = new Float32Array(N).fill(BASE);
     locked = new Uint8Array(N);
+    tweenPool.length = 0;
+    buildStaticGrid();
   }
 
   initGrid();
@@ -293,15 +341,7 @@ window.addEventListener('resize', ajustarAlturaSidebars);
         if (locked[i]) continue;
         locked[i] = 1;
         const t = 1 - dist / R;
-        const obj = { v: BASE };
-        gsap.to(obj, {
-          v: BASE + t * 0.55,
-          delay: dist * 0.014,
-          duration: 0.12 + t * 0.08,
-          yoyo: true, repeat: 1, ease: 'power2.out',
-          onUpdate()   { bright[i] = obj.v; },
-          onComplete() { bright[i] = BASE; locked[i] = 0; }
-        });
+        addTween(i, BASE + t * 0.55, (0.12 + t * 0.08) * 2, dist * 0.014);
       }
     }
   }
@@ -312,42 +352,48 @@ window.addEventListener('resize', ajustarAlturaSidebars);
     const i = r * COLS + c;
     if (locked[i]) return;
     locked[i] = 1;
-    const obj = { v: BASE };
-    gsap.to(obj, {
-      v: BASE + 0.06 + Math.random() * 0.14,
-      duration: 0.18 + Math.random() * 0.36,
-      yoyo: true, repeat: 1, ease: 'sine.inOut',
-      onUpdate()   { bright[i] = obj.v; },
-      onComplete() { bright[i] = BASE; locked[i] = 0; }
-    });
+    addTween(i, BASE + 0.06 + Math.random() * 0.14, (0.18 + Math.random() * 0.36) * 2, 0);
   }
 
-  (function sparkleLoop() {
-    sparkle();
-    gsap.delayedCall(0.08 + Math.random() * 0.18, sparkleLoop);
-  })();
+  let sparkleTimer = null;
+  let rafId = null;
 
-  function render() {
+  function startSparkle() {
+    if (sparkleTimer !== null) return;
+    (function loop() {
+      sparkle();
+      sparkleTimer = setTimeout(loop, 80 + Math.random() * 180);
+    })();
+  }
+
+  function stopSparkle() {
+    clearTimeout(sparkleTimer);
+    sparkleTimer = null;
+  }
+
+  startSparkle();
+
+  const FRAME_MS = 1000 / 30;
+  let lastFrameTime = 0;
+
+  function render(now) {
+    rafId = requestAnimationFrame(render); // reschedule before work so cancel() on visibilitychange kills the next frame
+    const elapsed = now - lastFrameTime;
+    if (elapsed < FRAME_MS) return;
+    lastFrameTime = now - (elapsed % FRAME_MS);
+
+    updateTweens(Math.min(elapsed, 100) / 1000);
+
     const w = canvas.width, h = canvas.height;
     ctx.clearRect(0, 0, w, h);
 
     ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = C.dimDot;
-    ctx.beginPath();
-    for (let i = 0; i < N; i++) {
-      if (bright[i] < 0.18) {
-        const col = i % COLS, row = (i / COLS) | 0;
-        const x = col * SP + SP * 0.5, y = row * SP + SP * 0.5;
-        ctx.moveTo(x + DR, y);
-        ctx.arc(x, y, DR, 0, Math.PI * 2);
-      }
-    }
-    ctx.fill();
+    if (staticCanvas) ctx.drawImage(staticCanvas, 0, 0);
 
     ctx.globalCompositeOperation = 'lighter';
     for (let i = 0; i < N; i++) {
       const b = bright[i];
-      if (b < 0.18) continue;
+      if (b < GLOW_THRESHOLD) continue;
       const col = i % COLS, row = (i / COLS) | 0;
       const x = col * SP + SP * 0.5, y = row * SP + SP * 0.5;
       const glowR = DR * 1.4 + b * 5.5;
@@ -365,7 +411,7 @@ window.addEventListener('resize', ajustarAlturaSidebars);
     ctx.globalCompositeOperation = 'source-over';
     for (let i = 0; i < N; i++) {
       const b = bright[i];
-      if (b < 0.18) continue;
+      if (b < GLOW_THRESHOLD) continue;
       const col = i % COLS, row = (i / COLS) | 0;
       const x = col * SP + SP * 0.5, y = row * SP + SP * 0.5;
       ctx.fillStyle = C.core(Math.min(1, b * 1.18));
@@ -388,11 +434,20 @@ window.addEventListener('resize', ajustarAlturaSidebars);
       ctx.fill();
       ctx.globalCompositeOperation = 'source-over';
     }
-
-    requestAnimationFrame(render);
   }
 
-  render();
+  rafId = requestAnimationFrame(render);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+      stopSparkle();
+    } else {
+      if (rafId === null) rafId = requestAnimationFrame(render);
+      startSparkle();
+    }
+  });
 
   if (logo404) {
     const COLORS = [

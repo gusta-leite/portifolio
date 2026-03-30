@@ -17,6 +17,14 @@
     margin-top: 14vh;
   }
 
+  model-viewer {
+    cursor: none !important;
+  }
+
+  model-viewer:active {
+    cursor: none !important;
+  }
+
   .container-title img {
     max-width: 40%;
     margin-bottom: 5%;
@@ -373,6 +381,7 @@ canvas {
   top: 0;
   left: 0;
   pointer-events: none;
+  will-change: transform;
 }
 
 .cursor,
@@ -716,6 +725,13 @@ select option {
 #divsmob3 {
   height: 20vh;
 }
+
+/* label */
+
+.language-selector {
+  cursor: none;
+}
+
 
 /* footer css */
 
