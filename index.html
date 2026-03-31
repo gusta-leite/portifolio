@@ -18,10 +18,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+
+  <link rel="preload" href="style.min.css" as="style">
   <link rel="stylesheet" href="style.min.css">
-  <link
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" as="script">
+
+  <link rel="preload" href="img/Vector.svg" as="image" fetchpriority="high">
+  <link rel="preload" href="img/logo-oth.svg" as="image" fetchpriority="high">
+
+  <!-- Urbanist carrega de forma bloqueante: usada no canvas do loading antes de qualquer JS rodar -->
+  <link rel="stylesheet" fetchpriority="high"
+    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400&display=block">
+  <!-- demais fontes carregam de forma não-bloqueante após o loading -->
+  <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </noscript>
 
   <link rel="shortcut icon" type="image/x-icon" href="./img/icon.ico">
 
@@ -29,7 +46,7 @@
 </head>
 
 
-<body>
+<body style="background-color:#0D0D0D;">
   <main>
 
     <canvas id="dot-grid"></canvas>
@@ -73,9 +90,35 @@
       </div>
     </div>
 
-    <div class="loading" style="display: block; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden;">
+    <div class="loading" style="display: block; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; background-color: #0D0D0D;">
       <canvas id="loading-canvas"></canvas>
       <div id="counter" style="display: none;">1</div>
+      <script>
+        (function () {
+          var canvas = document.getElementById('loading-canvas');
+          var ctx = canvas.getContext('2d');
+          var W = canvas.width = window.innerWidth;
+          var H = canvas.height = window.innerHeight;
+          var SP = 6, DR = 0.76;
+          var COLS = Math.ceil(W / SP) + 2;
+          var ROWS = Math.ceil(H / SP) + 2;
+          var GX = (W - COLS * SP) * 0.5;
+          var GY = (H - ROWS * SP) * 0.5;
+          ctx.fillStyle = 'rgba(195,190,182,0.10)';
+          ctx.beginPath();
+          for (var i = 0, n = COLS * ROWS; i < n; i++) {
+            var x = GX + (i % COLS) * SP + SP * 0.5;
+            var y = GY + ((i / COLS) | 0) * SP + SP * 0.5;
+            ctx.moveTo(x + DR, y); ctx.arc(x, y, DR, 0, Math.PI * 2);
+          }
+          ctx.fill();
+          ctx.font = '400 62px Urbanist,sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'alphabetic';
+          ctx.fillStyle = 'rgba(238,228,208,0.86)';
+          ctx.fillText('00', W * 0.5, H * 0.5 + 22.5 * SP + 76);
+        })();
+      </script>
     </div>
 
     <div class="landing">
@@ -97,7 +140,7 @@
               exposure="0.35" interaction-prompt="none" id="model-cell">
             </model-viewer>
           </div>
-          <img src="img/star.svg" class="star-landing" alt="estela">
+          <img src="img/star.svg" class="star-landing" alt="estela" fetchpriority="high">
           <div id="divsmob3"></div>
           <span id="col-none"><br><br><br><br><br><br><br></span>
         </div>
@@ -105,7 +148,7 @@
         <div id="projetos" class="projetos" style="display: none;">
           <div class="container-title">
             <div class="coluna-title">
-              <img src="img/Projetos.svg" id="projecimg">
+              <img src="img/Projetos.svg" id="projecimg" loading="lazy">
             </div>
           </div>
 
@@ -119,18 +162,18 @@
                     <div class="icons toggle-content" id="links1">
                       <div class="coluna-icon">
                         <a href="https://github.com/gusta-leite/EFIVI-LP" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github">
+                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://www.behance.net/gallery/233366807/UI-Eficiente-Visual" target="_blank"
                           aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance">
+                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://eficientevisual.vercel.app/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website">
+                          <img src="img/web-icon.svg" alt="website" loading="lazy">
                         </a>
                       </div>
                     </div>
@@ -166,18 +209,18 @@
                     <div class="icons toggle-content" id="links4">
                       <div class="coluna-icon">
                         <a href="https://github.com/gusta-leite/night-march" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github">
+                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank"
                           aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance">
+                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://gusta-leite.github.io/night-march/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website">
+                          <img src="img/web-icon.svg" alt="website" loading="lazy">
                         </a>
                       </div>
                     </div>
@@ -192,17 +235,17 @@
                       <div class="coluna-icon">
                         <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank"
                           aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance">
+                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a>
-                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;">
+                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://filhosdepelo.com/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website">
+                          <img src="img/web-icon.svg" alt="website" loading="lazy">
                         </a>
                       </div>
                     </div>
@@ -221,18 +264,18 @@
                     <div class="icons" id="linksmobs">
                       <div class="coluna-icon">
                         <a href="https://github.com/gusta-leite/EFIVI-LP" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github">
+                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://www.behance.net/gallery/233366807/UI-Eficiente-Visual" target="_blank"
                           aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance">
+                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://eficientevisual.vercel.app/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website">
+                          <img src="img/web-icon.svg" alt="website" loading="lazy">
                         </a>
                       </div>
                     </div>
@@ -262,18 +305,18 @@
                     <div class="icons" id="linksmobs">
                       <div class="coluna-icon">
                         <a href="https://github.com/gusta-leite/night-march" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github">
+                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank"
                           aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance">
+                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://gusta-leite.github.io/night-march/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website">
+                          <img src="img/web-icon.svg" alt="website" loading="lazy">
                         </a>
                       </div>
                     </div>
@@ -288,17 +331,17 @@
                       <div class="coluna-icon">
                         <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank"
                           aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance">
+                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a>
-                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;">
+                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;" loading="lazy">
                         </a>
                       </div>
                       <div class="coluna-icon">
                         <a href="https://filhosdepelo.com/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website">
+                          <img src="img/web-icon.svg" alt="website" loading="lazy">
                         </a>
                       </div>
                     </div>
@@ -318,27 +361,27 @@
         <div class="container-abt" id="colabt" style="display: none;">
           </br>
           <div class="coluna-abt" id="colabt-eu">
-            <img src="img/mee.svg" id="img-eu" alt="eu!">
+            <img src="img/mee.svg" id="img-eu" alt="eu!" loading="lazy">
           </div>
           <div class="coluna-abt">
-            <img src="img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -50px;" alt="estela">
+            <img src="img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -50px;" alt="estela" loading="lazy">
           </div>
           <div class="coluna-abt">
-            <img src="img/texto.svg" style="height: 90%" class="textcol" id="aboutimg" alt="texto">
+            <img src="img/texto.svg" style="height: 90%" class="textcol" id="aboutimg" alt="texto" loading="lazy">
             <div class="icons">
               <div class="coluna-icon">
                 <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
-                  <img src="img/lkd-icon.svg" alt="linkedin">
+                  <img src="img/lkd-icon.svg" alt="linkedin" loading="lazy">
                 </a>
               </div>
               <div class="coluna-icon">
                 <a href="https://github.com/gusta-leite" target="_blank">
-                  <img src="img/git-icon.svg" alt="github">
+                  <img src="img/git-icon.svg" alt="github" loading="lazy">
                 </a>
               </div>
               <div class="coluna-icon">
                 <a href="https://www.behance.net/gustaleite/" target="_blank">
-                  <img src="img/beh-icon.svg" alt="behance">
+                  <img src="img/beh-icon.svg" alt="behance" loading="lazy">
                 </a>
               </div>
             </div>
@@ -391,13 +434,13 @@
 
     <footer class="logo">
       <a href="https://wa.me/5517996073702" target="_blank">
-        <img src="img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="logo">
+        <img src="img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="logo" loading="lazy">
         <button class="button">
           <span id="whatsapp">me mande uma mensagem.</span>
         </button>
       </a>
       </br>
-      <img src="img/logo.svg" id="logofin" class="footernotshow" alt="logo">
+      <img src="img/logo.svg" id="logofin" class="footernotshow" alt="logo" loading="lazy">
     </footer>
   </main>
 
@@ -424,6 +467,14 @@
     const bright = new Float32Array(N).fill(BASE);
     const locked = new Uint8Array(N);
     const zone   = new Uint8Array(N);
+
+    // Pre-compute dot positions — avoids per-frame array allocations
+    const dotX = new Float32Array(N);
+    const dotY = new Float32Array(N);
+    for (let i = 0; i < N; i++) {
+      dotX[i] = GX + (i % COLS) * SP + SP * 0.5;
+      dotY[i] = GY + ((i / COLS) | 0) * SP + SP * 0.5;
+    }
 
     const CX  = (COLS - 1) * 0.5;
     const CY  = (ROWS - 1) * 0.5;
@@ -452,18 +503,11 @@
     const rc = (r, g, b, a) => `rgba(${r},${g},${b},${a})`;
     const zc = (z, a)       => rc(...ZC[z], a);
 
-    function dotXY(i) {
-      return [
-        GX + (i % COLS) * SP + SP * 0.5,
-        GY + ((i / COLS) | 0) * SP + SP * 0.5
-      ];
-    }
-
     const starDots = [];
     for (let i = 0; i < N; i++) {
       if (!zone[i]) continue;
-      const dx   = (i % COLS) - CX;
-      const dy   = ((i / COLS) | 0) - CY;
+      const dx = (i % COLS) - CX;
+      const dy = ((i / COLS) | 0) - CY;
       starDots.push({ i, dist: Math.hypot(dx, dy) });
     }
     starDots.sort((a, b) => a.dist - b.dist);
@@ -471,31 +515,62 @@
 
     const ZB = [0, 0.36, 0.44, 0.55];
 
+    // Lightweight tween pool — replaces per-dot GSAP instances
+    // Each entry: [dotIndex, fromVal, peakVal, targetVal, riseDur, settleDur, elapsed, phase]
+    const TW_I=0, TW_FROM=1, TW_PEAK=2, TW_TARGET=3, TW_RISE=4, TW_SETTLE=5, TW_T=6, TW_PHASE=7;
+    const tweens = [];
+
+    function updateTweens(dt) {
+      for (let j = tweens.length - 1; j >= 0; j--) {
+        const tw = tweens[j];
+        tw[TW_T] += dt;
+        if (tw[TW_PHASE] === 0) {
+          const t = Math.min(1, tw[TW_T] / tw[TW_RISE]);
+          const e = 1 - (1 - t) * (1 - t) * (1 - t); // power3 out
+          bright[tw[TW_I]] = tw[TW_FROM] + (tw[TW_PEAK] - tw[TW_FROM]) * e;
+          if (t >= 1) { tw[TW_PHASE] = 1; tw[TW_T] = 0; }
+        } else {
+          const t = Math.min(1, tw[TW_T] / tw[TW_SETTLE]);
+          const e = 0.5 - 0.5 * Math.cos(t * Math.PI); // sine inOut
+          bright[tw[TW_I]] = tw[TW_PEAK] + (tw[TW_TARGET] - tw[TW_PEAK]) * e;
+          if (t >= 1) {
+            bright[tw[TW_I]] = tw[TW_TARGET];
+            locked[tw[TW_I]] = 0;
+            tweens[j] = tweens[tweens.length - 1];
+            tweens.pop();
+          }
+        }
+      }
+    }
+
     function lightDot(i) {
       if (locked[i]) return;
       locked[i] = 1;
       const target = ZB[zone[i]];
-      const obj    = { v: bright[i] };
-      gsap.to(obj, {
-        v: target * 1.6,
-        duration: 0.07 + Math.random() * 0.06,
-        ease: 'power3.out',
-        onUpdate()  { bright[i] = obj.v; },
-        onComplete() {
-          gsap.to(obj, {
-            v: target,
-            duration: 0.2 + Math.random() * 0.18,
-            ease: 'sine.inOut',
-            onUpdate()  { bright[i] = obj.v; },
-            onComplete() { locked[i] = 0; }
-          });
-        }
-      });
+      tweens.push([i, bright[i], target * 1.6, target,
+        0.07 + Math.random() * 0.06, 0.2 + Math.random() * 0.18, 0, 0]);
+    }
+
+    // Background sparkle via setTimeout instead of chained gsap.delayedCall
+    let bgTimer = null;
+    function bgSparkle() {
+      const c = Math.floor(Math.random() * COLS);
+      const r = Math.floor(Math.random() * ROWS);
+      const i = r * COLS + c;
+      if (!zone[i] && !locked[i]) {
+        locked[i] = 1;
+        const peak = BASE + 0.04 + Math.random() * 0.09;
+        const dur  = 0.22 + Math.random() * 0.44;
+        tweens.push([i, BASE, peak, BASE, dur, dur, 0, 0]);
+      }
+      bgTimer = setTimeout(bgSparkle, 100 + Math.random() * 180);
     }
 
     const counter = { value: 0 };
     let lastLit   = 0;
     const lp      = { p: 0 };
+    const LOAD_START = Date.now();
+    const MIN_DISPLAY = 1400;
 
     function startLoad() {
       lastLit       = 0;
@@ -507,15 +582,15 @@
 
       gsap.to(counter, {
         value: 99,
-        duration: 2.5,
-        ease: 'power1.inOut',
+        duration: 14,
+        ease: 'power4.out',
         snap: { value: 1 }
       });
 
       gsap.to(lp, {
         p: TOTAL,
-        duration: 2.5,
-        ease: 'power1.inOut',
+        duration: 14,
+        ease: 'power4.out',
         onUpdate() {
           const tgt = Math.round(lp.p);
           while (lastLit < tgt) lightDot(starDots[lastLit++].i);
@@ -523,27 +598,66 @@
       });
     }
 
-    (function bgLoop() {
-      const c = Math.floor(Math.random() * COLS);
-      const r = Math.floor(Math.random() * ROWS);
-      const i = r * COLS + c;
-      if (!zone[i] && !locked[i]) {
-        locked[i] = 1;
-        const obj = { v: BASE };
-        gsap.to(obj, {
-          v: BASE + 0.04 + Math.random() * 0.09,
-          duration: 0.22 + Math.random() * 0.44,
-          yoyo: true, repeat: 1, ease: 'sine.inOut',
-          onUpdate()  { bright[i] = obj.v; },
-          onComplete() { bright[i] = BASE; locked[i] = 0; }
-        });
-      }
-      gsap.delayedCall(0.1 + Math.random() * 0.18, bgLoop);
-    })();
+    let rafId = null;
 
+    window._completeLoading = function () {
+      const elapsed = Date.now() - LOAD_START;
+      const wait    = Math.max(0, MIN_DISPLAY - elapsed);
+      setTimeout(function () {
+        clearTimeout(bgTimer);
+        bgTimer = null;
+        gsap.killTweensOf(counter);
+        gsap.killTweensOf(lp);
+        gsap.to(counter, {
+          value: 100,
+          duration: 0.32,
+          ease: 'power2.in',
+          snap: { value: 1 }
+        });
+        gsap.to(lp, {
+          p: TOTAL,
+          duration: 0.32,
+          ease: 'power2.in',
+          onUpdate() {
+            const tgt = Math.round(lp.p);
+            while (lastLit < tgt) lightDot(starDots[lastLit++].i);
+          },
+          onComplete() {
+            var loading = document.querySelector('.loading');
+            gsap.to(loading, {
+              opacity: 0,
+              duration: 0.45,
+              delay: 0.12,
+              ease: 'power1.inOut',
+              onComplete() {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+                tweens.length = 0;
+                canvas.width = 0;
+                loading.remove();
+                delete window._completeLoading;
+              }
+            });
+          }
+        });
+      }, wait);
+    };
+
+    bgSparkle();
     startLoad();
 
-    function render() {
+    const LOAD_FRAME_MS = 1000 / 12;
+    let lastTime = -1;
+    function render(now) {
+      rafId = requestAnimationFrame(render);
+      if (lastTime < 0) { lastTime = now; }
+      const elapsed = now - lastTime;
+      if (elapsed < LOAD_FRAME_MS) return;
+      const dt = Math.min(elapsed / 1000, 0.1);
+      lastTime = now - (elapsed % LOAD_FRAME_MS);
+
+      updateTweens(dt);
+
       ctx.clearRect(0, 0, W, H);
 
       ctx.globalCompositeOperation = 'source-over';
@@ -551,7 +665,7 @@
       ctx.beginPath();
       for (let i = 0; i < N; i++) {
         if (!zone[i] && bright[i] < 0.15) {
-          const [x, y] = dotXY(i);
+          const x = dotX[i], y = dotY[i];
           ctx.moveTo(x + DR, y);
           ctx.arc(x, y, DR, 0, Math.PI * 2);
         }
@@ -563,7 +677,7 @@
         ctx.beginPath();
         for (let i = 0; i < N; i++) {
           if (zone[i] === z && bright[i] < 0.15) {
-            const [x, y] = dotXY(i);
+            const x = dotX[i], y = dotY[i];
             ctx.moveTo(x + DR, y);
             ctx.arc(x, y, DR, 0, Math.PI * 2);
           }
@@ -575,7 +689,7 @@
       for (let i = 0; i < N; i++) {
         const b = bright[i];
         if (b < 0.15) continue;
-        const [x, y] = dotXY(i);
+        const x = dotX[i], y = dotY[i];
         const gR  = DR * 1.5 + b * 5.8;
         const grd = ctx.createRadialGradient(x, y, 0, x, y, gR);
         const z   = zone[i];
@@ -601,7 +715,7 @@
       for (let i = 0; i < N; i++) {
         const b = bright[i];
         if (b < 0.15) continue;
-        const [x, y] = dotXY(i);
+        const x = dotX[i], y = dotY[i];
         const z = zone[i];
         if (!z) {
           ctx.fillStyle = `rgba(255,252,244,${Math.min(1, b * 1.15)})`;
@@ -619,20 +733,19 @@
       ctx.textAlign    = 'center';
       ctx.textBaseline = 'alphabetic';
       ctx.fillStyle    = 'rgba(238,228,208,0.86)';
+      const cv = Math.round(counter.value);
       ctx.fillText(
-        String(Math.round(counter.value)).padStart(2, '0'),
+        cv < 100 ? String(cv).padStart(2, '0') : '100',
         W * 0.5,
         H * 0.5 + 22.5 * SP + 76
       );
-
-      requestAnimationFrame(render);
     }
 
-    render();
+    rafId = requestAnimationFrame(render);
   })();
   </script>
-  <script src="script.min.js"></script>
-  <script src="translations.min.js"></script>
+  <script src="script.min.js" defer></script>
+  <script src="translations.min.js" defer></script>
   <script>
     window.addEventListener('load', function () {
       var mv = document.createElement('script');

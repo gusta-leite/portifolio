@@ -63,88 +63,38 @@ gsap.to(".star-landing", {
 const $ = (s, o = document) => o.querySelector(s);
 const $$ = (s, o = document) => o.querySelectorAll(s);
 
-$$('.button').forEach(el => el.addEventListener('mousemove', function (e) {
-  const pos = this.getBoundingClientRect();
-  const mx = e.clientX - pos.left - pos.width / 2;
-  const my = e.clientY - pos.top - pos.height / 2;
-
-  this.style.transform = 'translate(' + mx * 0.15 + 'px, ' + my * 0.3 + 'px)';
-  this.style.transform += 'rotate3d(' + mx * -0.1 + ', ' + my * -0.3 + ', 0, 10deg)';
-  this.children[0].style.transform = 'translate(' + mx * 0.025 + 'px, ' + my * 0.075 + 'px)';
-}));
-
-$$('.button').forEach(el => el.addEventListener('mouseleave', function () {
-  this.style.transform = 'translate3d(0px, 0px, 0px)';
-  this.style.transform += 'rotate3d(0, 0, 0, 0deg)';
-  this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
-}));
+$$('.button').forEach(el => {
+  el.addEventListener('mousemove', function (e) {
+    const pos = this.getBoundingClientRect();
+    const mx = e.clientX - pos.left - pos.width / 2;
+    const my = e.clientY - pos.top - pos.height / 2;
+    this.style.transform = 'translate(' + mx * 0.15 + 'px, ' + my * 0.3 + 'px)';
+    this.style.transform += 'rotate3d(' + mx * -0.1 + ', ' + my * -0.3 + ', 0, 10deg)';
+    this.children[0].style.transform = 'translate(' + mx * 0.025 + 'px, ' + my * 0.075 + 'px)';
+  });
+  el.addEventListener('mouseleave', function () {
+    this.style.transform = 'translate3d(0px, 0px, 0px)';
+    this.style.transform += 'rotate3d(0, 0, 0, 0deg)';
+    this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
+  });
+});
 
 // popup section
-const triggers = document.querySelectorAll('.js-toggle-trigger');
-
-triggers.forEach(trigger => {
+document.querySelectorAll('.js-toggle-trigger, .js-toggle-trigger-oth').forEach(trigger => {
   trigger.addEventListener('click', () => {
-    const targetId = trigger.dataset.target;
-    const content = document.querySelector(targetId);
-    if (content) {
-      content.classList.toggle('show');
-    }
-  });
-});
-
-const triggers2 = document.querySelectorAll('.js-toggle-trigger-oth');
-
-triggers2.forEach(trigger => {
-  trigger.addEventListener('click', () => {
-    const targetId = trigger.dataset.target;
-    const content = document.querySelector(targetId);
-    if (content) {
-      content.classList.toggle('show');
-    }
+    const content = document.querySelector(trigger.dataset.target);
+    if (content) content.classList.toggle('show');
   });
 });
 
 
-// animação
-function sleep(seconds) {
-  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
-}
+// animação model-pc
 const logo = document.querySelector("#model-pc");
 
 window.addEventListener('load', function () {
-  sleep(0.1).then(() => {
-    logo.classList.add('invisible');
-  });
-  sleep(0.4).then(() =>
-    logo.classList.add('visible'),
-  );
-});
-
-// movement and loading
-
-let counterObject = {
-  value: 1
-};
-const counterElement = document.getElementById('counter');
-
-gsap.to(counterObject, {
-  value: 99,
-  duration: 2,
-  ease: "power1.out",
-  onUpdate: function () {
-    counterElement.textContent = Math.floor(counterObject.value);
-  }
-});
-
-const loading = document.querySelector(".loading");
-
-window.addEventListener('load', function () {
-  sleep(2.9).then(() => {
-    loading.classList.add('hidden');
-    setTimeout(() => {
-      loading.style.display = 'none';
-    }, 500);
-  });
+  setTimeout(() => logo.classList.add('invisible'), 100);
+  setTimeout(() => logo.classList.add('visible'), 400);
+  if (window._completeLoading) window._completeLoading();
 });
 
 // smooth scroll
@@ -268,7 +218,6 @@ window.addEventListener('resize', ajustarAlturaSidebars);
   const tweenPool = [];
 
   function easeOut(t) { return 1 - (1 - t) * (1 - t); }
-  function easeSine(t) { return 0.5 - 0.5 * Math.cos(t * Math.PI); }
 
   function addTween(i, peak, totalDuration, delay) {
     tweenPool.push({ i, peak, totalDuration, delay: delay || 0, elapsed: 0 });
@@ -371,8 +320,6 @@ window.addEventListener('resize', ajustarAlturaSidebars);
     sparkleTimer = null;
   }
 
-  startSparkle();
-
   const FRAME_MS = 1000 / 30;
   let lastFrameTime = 0;
 
@@ -445,7 +392,6 @@ window.addEventListener('resize', ajustarAlturaSidebars);
       stopSparkle();
     } else {
       if (rafId === null) rafId = requestAnimationFrame(render);
-      startSparkle();
     }
   });
 
@@ -517,22 +463,8 @@ window.addEventListener('resize', ajustarAlturaSidebars);
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  const images = document.querySelectorAll('img');
-
-  images.forEach(image => {
-    image.style.userSelect = 'none';
-    image.style.webkitUserSelect = 'none';
-    image.style.mozUserSelect = 'none';
-    image.style.msUserSelect = 'none';
-
-    image.style.webkitUserDrag = 'none';
-
-    image.addEventListener('contextmenu', (event) => {
-      event.preventDefault();
-    });
-
-    image.addEventListener('dragstart', (event) => {
-      event.preventDefault();
-    });
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('contextmenu', e => e.preventDefault());
+    img.addEventListener('dragstart', e => e.preventDefault());
   });
 });

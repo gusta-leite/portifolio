@@ -353,6 +353,11 @@ canvas {
   display: block;
 }
 
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 @view-transition {
     navigation: auto;
 }
@@ -532,7 +537,7 @@ select option {
   margin: 0 auto;
   display: grid;
   margin-top: 5rem;
-  overflow: contain;
+  overflow: hidden;
 }
 
 .container-abt img {
@@ -558,7 +563,7 @@ select option {
   padding: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  overflow: contain;
+  overflow: hidden;
   align-items: center;
   margin-top: 2vh;
   object-fit: contain;
