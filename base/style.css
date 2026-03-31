@@ -729,6 +729,37 @@ select option {
   border-radius: 1rem;
 }
 
+/* skeleton loading para bento items */
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.bento-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-image: none !important;
+  background-color: #1c1c1c;
+}
+
+.bento-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255, 252, 244, 0.06) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite linear;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* divisorias */
 
 #divsmob3 {

@@ -104,14 +104,6 @@
           var ROWS = Math.ceil(H / SP) + 2;
           var GX = (W - COLS * SP) * 0.5;
           var GY = (H - ROWS * SP) * 0.5;
-          ctx.fillStyle = 'rgba(195,190,182,0.10)';
-          ctx.beginPath();
-          for (var i = 0, n = COLS * ROWS; i < n; i++) {
-            var x = GX + (i % COLS) * SP + SP * 0.5;
-            var y = GY + ((i / COLS) | 0) * SP + SP * 0.5;
-            ctx.moveTo(x + DR, y); ctx.arc(x, y, DR, 0, Math.PI * 2);
-          }
-          ctx.fill();
           ctx.font = '400 62px Urbanist,sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'alphabetic';
@@ -155,7 +147,7 @@
           <div class="bento" id="col-none">
             <div class="bento__container" variant-1>
               
-              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1">
+              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1">
                 <a aria-label="eficientevisual">
                   <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links1"></div>
                   <section class="links">
@@ -180,29 +172,29 @@
                   </section>
                 </a>
               </div>
-              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
+              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
                 <a href="https://www.behance.net/gallery/242181555/UI-Stargaze-AI-Platform" target="_blank" aria-label="stargaze">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item" style="--columns: span 1; --rows: span 2;" id="fill9" itemid="3">
+              <div class="bento__item bento-skeleton" style="--columns: span 1; --rows: span 2;" id="fill9" itemid="3">
                 <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
                   aria-label="sonho gelado">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
+              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
                 <a href="https://www.behance.net/gallery/242259939/UI-RIVOTA" target="_blank" aria-label="rivota">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item" style=" --rows: span 5;" id="fill5" itemid="5">
+              <div class="bento__item bento-skeleton" style=" --rows: span 5;" id="fill5" itemid="5">
                 <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
                   aria-label="rações do pedrão">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6">
+              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6">
                 <a aria-label="night-march">
                   <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links4"></div>
                   <section class="links">
@@ -227,7 +219,7 @@
                   </section>
                 </a>
               </div>
-              <div class="bento__item" style="--columns: span 1;--rows: span 3;" id="fill7" itemid="7">
+              <div class="bento__item bento-skeleton" style="--columns: span 1;--rows: span 3;" id="fill7" itemid="7">
                 <a aria-label="filhos de pelo">
                   <div style="height: 80%; width: 100%;" class="js-toggle-trigger-oth" data-target="#links3"></div>
                   <section class="links">
@@ -257,7 +249,7 @@
 
           <div class="bento2" id="col-none-pc">
             <div class="bento__container2" variant-2>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill1">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill1">
                 <a aria-label="eficientevisual">
                   <div style="height: 70%; width: 100%;"></div>
                   <section class="linksmobs-s">
@@ -282,23 +274,23 @@
                   </section>
                 </a>
               </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill2">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill2">
                 <a href="https://www.behance.net/gallery/242181555/UI-Stargaze-AI-Platform" target="_blank" aria-label="stargaze">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill4">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill4">
                 <a href="https://www.behance.net/gallery/242259939/UI-RIVOTA" target="_blank" aria-label="rivota">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill5">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill5">
                 <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
                   aria-label="rações do pedrão">
                   <div style="height: 100%; width: 100%;"></div>
                 </a>
               </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill6">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill6">
                 <a aria-label="night-march">
                   <div style="height: 70%; width: 100%;"></div>
                   <section class="linksmobs-s">
@@ -323,7 +315,7 @@
                   </section>
                 </a>
               </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill7">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill7">
                 <a aria-label="filhos de pelo">
                   <div style="height: 70%; width: 100%;"></div>
                   <section class="linksmobs-s">
@@ -348,7 +340,7 @@
                   </section>
                 </a>
               </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill9">
+              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill9">
                 <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
                   aria-label="sonho gelado">
                   <div style="height: 100%; width: 100%;"></div>
@@ -551,26 +543,11 @@
         0.07 + Math.random() * 0.06, 0.2 + Math.random() * 0.18, 0, 0]);
     }
 
-    // Background sparkle via setTimeout instead of chained gsap.delayedCall
-    let bgTimer = null;
-    function bgSparkle() {
-      const c = Math.floor(Math.random() * COLS);
-      const r = Math.floor(Math.random() * ROWS);
-      const i = r * COLS + c;
-      if (!zone[i] && !locked[i]) {
-        locked[i] = 1;
-        const peak = BASE + 0.04 + Math.random() * 0.09;
-        const dur  = 0.22 + Math.random() * 0.44;
-        tweens.push([i, BASE, peak, BASE, dur, dur, 0, 0]);
-      }
-      bgTimer = setTimeout(bgSparkle, 100 + Math.random() * 180);
-    }
-
     const counter = { value: 0 };
     let lastLit   = 0;
     const lp      = { p: 0 };
     const LOAD_START = Date.now();
-    const MIN_DISPLAY = 1400;
+    const MIN_DISPLAY = 4100;
 
     function startLoad() {
       lastLit       = 0;
@@ -582,14 +559,14 @@
 
       gsap.to(counter, {
         value: 99,
-        duration: 14,
+        duration: 4,
         ease: 'power4.out',
         snap: { value: 1 }
       });
 
       gsap.to(lp, {
         p: TOTAL,
-        duration: 14,
+        duration: 4,
         ease: 'power4.out',
         onUpdate() {
           const tgt = Math.round(lp.p);
@@ -604,8 +581,6 @@
       const elapsed = Date.now() - LOAD_START;
       const wait    = Math.max(0, MIN_DISPLAY - elapsed);
       setTimeout(function () {
-        clearTimeout(bgTimer);
-        bgTimer = null;
         gsap.killTweensOf(counter);
         gsap.killTweensOf(lp);
         gsap.to(counter, {
@@ -643,7 +618,6 @@
       }, wait);
     };
 
-    bgSparkle();
     startLoad();
 
     const LOAD_FRAME_MS = 1000 / 12;
@@ -661,17 +635,6 @@
       ctx.clearRect(0, 0, W, H);
 
       ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(195,190,182,0.10)';
-      ctx.beginPath();
-      for (let i = 0; i < N; i++) {
-        if (!zone[i] && bright[i] < 0.15) {
-          const x = dotX[i], y = dotY[i];
-          ctx.moveTo(x + DR, y);
-          ctx.arc(x, y, DR, 0, Math.PI * 2);
-        }
-      }
-      ctx.fill();
-
       for (let z = 1; z <= 3; z++) {
         ctx.fillStyle = zc(z, 0.055);
         ctx.beginPath();
@@ -693,18 +656,12 @@
         const gR  = DR * 1.5 + b * 5.8;
         const grd = ctx.createRadialGradient(x, y, 0, x, y, gR);
         const z   = zone[i];
-        if (!z) {
-          grd.addColorStop(0,    `rgba(248,244,236,${b * 0.19})`);
-          grd.addColorStop(0.28, `rgba(210,203,190,${b * 0.09})`);
-          grd.addColorStop(0.62, `rgba(162,155,144,${b * 0.03})`);
-          grd.addColorStop(1,    'rgba(90,86,80,0)');
-        } else {
-          const [r, g, bl] = ZC[z];
-          grd.addColorStop(0,    rc(r, g, bl, b * 0.28));
-          grd.addColorStop(0.3,  rc(r, g, bl, b * 0.12));
-          grd.addColorStop(0.65, rc(r, g, bl, b * 0.038));
-          grd.addColorStop(1,    rc(r, g, bl, 0));
-        }
+        if (!z) continue;
+        const [r, g, bl] = ZC[z];
+        grd.addColorStop(0,    rc(r, g, bl, b * 0.28));
+        grd.addColorStop(0.3,  rc(r, g, bl, b * 0.12));
+        grd.addColorStop(0.65, rc(r, g, bl, b * 0.038));
+        grd.addColorStop(1,    rc(r, g, bl, 0));
         ctx.fillStyle = grd;
         ctx.beginPath();
         ctx.arc(x, y, gR, 0, Math.PI * 2);
@@ -717,12 +674,9 @@
         if (b < 0.15) continue;
         const x = dotX[i], y = dotY[i];
         const z = zone[i];
-        if (!z) {
-          ctx.fillStyle = `rgba(255,252,244,${Math.min(1, b * 1.15)})`;
-        } else {
-          const [r, g, bl] = ZC[z];
-          ctx.fillStyle = rc(r, g, bl, Math.min(1, b * 1.1));
-        }
+        if (!z) continue;
+        const [r, g, bl] = ZC[z];
+        ctx.fillStyle = rc(r, g, bl, Math.min(1, b * 1.1));
         ctx.beginPath();
         ctx.arc(x, y, DR * (1.05 + b * 0.36), 0, Math.PI * 2);
         ctx.fill();
@@ -746,6 +700,28 @@
   </script>
   <script src="script.min.js" defer></script>
   <script src="translations.min.js" defer></script>
+  <script>
+    (function () {
+      var BENTO_IMAGES = {
+        fill1: 'img/projects/efivi.avif',
+        fill2: 'img/projects/iaplat.avif',
+        fill4: 'img/projects/rivota.avif',
+        fill5: 'img/projects/racao.avif',
+        fill6: 'img/projects/night-march.avif',
+        fill7: 'img/projects/projong.avif',
+        fill9: 'img/projects/sonhog.avif'
+      };
+      Object.keys(BENTO_IMAGES).forEach(function (id) {
+        var src = BENTO_IMAGES[id];
+        var els = document.querySelectorAll('[id="' + id + '"]');
+        var img = new Image();
+        img.onload = img.onerror = function () {
+          els.forEach(function (el) { el.classList.remove('bento-skeleton'); });
+        };
+        img.src = src;
+      });
+    })();
+  </script>
   <script>
     window.addEventListener('load', function () {
       var mv = document.createElement('script');
