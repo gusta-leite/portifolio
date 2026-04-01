@@ -627,11 +627,11 @@ select option {
 }
 
 #fill1 {
-  background-image: url(img/projects/efivi.avif);
+  background-image: url(../img/projects/efivi.avif);
 }
 
 #fill2 {
-  background-image: url(img/projects/iaplat.avif);
+  background-image: url(../img/projects/iaplat.avif);
 }
 
 #fill3 {
@@ -639,19 +639,19 @@ select option {
 }
 
 #fill4 {
-  background-image: url(img/projects/rivota.avif);
+  background-image: url(../img/projects/rivota.avif);
 }
 
 #fill5 {
-  background-image: url(img/projects/racao.avif);
+  background-image: url(../img/projects/racao.avif);
 }
 
 #fill6 {
-  background-image: url(img/projects/night-march.avif);
+  background-image: url(../img/projects/night-march.avif);
 }
 
 #fill7 {
-  background-image: url(img/projects/projong.avif);
+  background-image: url(../img/projects/projong.avif);
 }
 
 #fill8 {
@@ -659,7 +659,7 @@ select option {
 }
 
 #fill9 {
-  background-image: url(img/projects/sonhog.avif);
+  background-image: url(../img/projects/sonhog.avif);
 }
 
 .toggle-content,

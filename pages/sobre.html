@@ -1,0 +1,223 @@
+
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gustavo Leite — sobre mim, UX designer e desenvolvedor web.">
+  <title>sobre — gustavo's portfolio</title>
+
+
+  <meta property="og:title" content="portfolio">
+  <meta property="og:description" content="meus projetos, meu cantinho">
+  <meta property="og:url" content="https://gustaleite.vercel.app/sobre">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://res.cloudinary.com/duaanfpet/image/upload/v1760989876/OGIMAGE_vrbmq8.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link rel="preload" href="../css/style.min.css" as="style">
+  <link rel="stylesheet" href="../css/style.min.css">
+
+  <link rel="preload" href="../js/gsap.min.js" as="script">
+
+  <link rel="stylesheet" fetchpriority="high"
+    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400&display=block">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </noscript>
+
+  <link rel="shortcut icon" type="image/x-icon" href="../img/icon.ico">
+
+
+</head>
+
+
+<body style="background-color:#0D0D0D;">
+  <main>
+
+    <canvas id="dot-grid"></canvas>
+
+    <div> <!-- Cursores-->
+      <div class="cursor">
+        <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g style="mix-blend-mode:exclusion">
+            <path
+              d="M0 30C0 13.4315 13.4315 0 30 0V0C46.5685 0 60 13.4315 60 30V30C60 46.5685 46.5685 60 30 60V60C13.4315 60 0 46.5685 0 30V30Z"
+              fill="#A30000" />
+          </g>
+        </svg>
+      </div>
+      <div class="cursor2">
+        <svg width="20" height="20" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g style="mix-blend-mode:exclusion">
+            <path
+              d="M0 30C0 13.4315 13.4315 0 30 0V0C46.5685 0 60 13.4315 60 30V30C60 46.5685 46.5685 60 30 60V60C13.4315 60 0 46.5685 0 30V30Z"
+              fill="#F6C24A" />
+          </g>
+        </svg>
+      </div>
+      <div class="curproj">
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g style="mix-blend-mode:exclusion">
+            <path
+              d="M100 50C100 77.6142 77.6142 100 50 100C22.3858 100 0 77.6142 0 50C0 22.3858 22.3858 0 50 0C77.6142 0 100 22.3858 100 50Z"
+              fill="#AAC64D" style="mix-blend-mode:exclusion" />
+          </g>
+        </svg>
+      </div>
+      <div class="curprojmini">
+        <svg width="20" height="20" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g style="mix-blend-mode:exclusion">
+            <path
+              d="M17.7 34.1L14.6 31.5L25.85 19.95C26.0833 19.75 26.25 19.5833 26.35 19.45C26.4833 19.3167 26.5667 19.2167 26.6 19.15H0V14.95H26.65C26.5833 14.85 26.4833 14.75 26.35 14.65C26.25 14.5167 26.0833 14.3333 25.85 14.1L14.7 2.75L17.65 0L30 12.6C30.8333 13.4333 31.45 14.1833 31.85 14.85C32.2833 15.5167 32.5 16.2333 32.5 17C32.5 17.7333 32.2833 18.4667 31.85 19.2C31.45 19.9 30.8333 20.6667 30 21.5L17.7 34.1Z"
+              fill="#FFFFF0" style="mix-blend-mode:difference" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="loading" style="display: flex; align-items: flex-end; justify-content: flex-start; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; background-color: #0D0D0D;">
+      <div id="counter" style="margin: 0 0 3rem 1.5rem; font-size: 4vw;">1</div>
+    </div>
+
+    <div class="landing">
+      <!-- fundo -->
+      <div class="lp-container">
+
+        <div class="container-abt" id="colabt" style="display: flex;">
+          </br>
+          <div class="coluna-abt" id="colabt-eu">
+            <img src="../img/mee.svg" id="img-eu" alt="eu!" loading="lazy">
+          </div>
+          <div class="coluna-abt">
+            <img src="../img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -50px;" alt="estela" loading="lazy">
+          </div>
+          <div class="coluna-abt">
+            <img src="../img/texto.svg" style="height: 90%" class="textcol" id="aboutimg" alt="texto" loading="lazy">
+            <div class="icons">
+              <div class="coluna-icon">
+                <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
+                  <img src="../img/lkd-icon.svg" alt="linkedin" loading="lazy">
+                </a>
+              </div>
+              <div class="coluna-icon">
+                <a href="https://github.com/gusta-leite" target="_blank">
+                  <img src="../img/git-icon.svg" alt="github" loading="lazy">
+                </a>
+              </div>
+              <div class="coluna-icon">
+                <a href="https://www.behance.net/gustaleite/" target="_blank">
+                  <img src="../img/beh-icon.svg" alt="behance" loading="lazy">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="sidebar-left" id="sp">
+        <svg width="120" height="100%" viewBox="0 0 120 976" preserveAspectRatio="none" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0H19V976H0V0Z" fill="#1C2F22"></path>
+          <path d="M19 857C19 857 19 904 46.3101 941.5C64.7701 966.848 119.137 976 119.137 976H19V857Z" fill="#1C2F22">
+          </path>
+        </svg>
+      </div>
+
+      <div class="sidebar-right" id="sp">
+        <svg width="119" height="100%" viewBox="0 0 119 976" preserveAspectRatio="none" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M100.137 857C100.137 857 100.137 904 72.8268 941.5C54.3668 966.848 0 976 0 976H100.137V857Z"
+            fill="#1C2F22"></path>
+          <path d="M100 0H119V976H100V0Z" fill="#1C2F22"></path>
+        </svg>
+      </div>
+
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link" id="telainicial"> tela inicial </a>
+          </li>
+          <li class="nav-item">
+            <a href="projetos.html" class="nav-link" id="projc"> projetos </a>
+          </li>
+          <li class="nav-item">
+            <a href="sobre.html" class="nav-link" id="sobremim"> sobre mim </a>
+          </li>
+          <li class="nav-item">
+            <select id="language-selector" class="language-selector" aria-label="language">
+              <option value="pt" lang="pt" aria-label="português">português</option>
+              <option value="en" lang="en" aria-label="english">english</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="divider">
+        <p id="dividertext" > o sonho de manter a internet viva segue vivo.</p>
+      </div>
+    </div>
+
+    <footer class="logo">
+      <a href="https://wa.me/5517996073702" target="_blank">
+        <img src="../img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="logo" loading="lazy">
+        <button class="button">
+          <span id="whatsapp">me mande uma mensagem.</span>
+        </button>
+      </a>
+      </br>
+      <img src="../img/logo.svg" id="logofin" class="footernotshow" alt="logo" loading="lazy">
+    </footer>
+  </main>
+
+  <script src="../js/gsap.min.js"></script>
+  <script>
+  (function () {
+    var counterObject = { value: 1 };
+    var counterElement = document.getElementById('counter');
+    gsap.to(counterObject, {
+      value: 99,
+      duration: 2,
+      ease: 'power1.out',
+      onUpdate: function () {
+        counterElement.textContent = Math.floor(counterObject.value);
+      }
+    });
+    var loading = document.querySelector('.loading');
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        loading.classList.add('hidden');
+        setTimeout(function () { loading.style.display = 'none'; }, 500);
+      }, 2900);
+    });
+  })();
+  </script>
+  <script src="../js/script.min.js" defer></script>
+  <script src="../js/translations.min.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'qrs7qht0wz');
+
+      var gtmScript = document.createElement('script');
+      gtmScript.async = true;
+      gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2121WJRKZ7';
+      document.head.appendChild(gtmScript);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-2121WJRKZ7');
+    });
+  </script>
+</body>
