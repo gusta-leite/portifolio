@@ -30,7 +30,7 @@ window.addEventListener("mousemove", (e) => {
   yToSelectmini(e.clientY);
 });
 
-document.querySelectorAll(".bento__item, .language-selector, .button, .text404").forEach((item) => {
+document.querySelectorAll(".bento__item, .language-selector, .button, .text404, .proj-modal-icon--link").forEach((item) => {
   item.addEventListener("mouseleave", () => {
     gsap.to(".curproj, .curprojmini", { opacity: 0, duration: 0.2 });
     gsap.to(".cursor, .cursor2", { opacity: 1, duration: 0.2 });
@@ -167,10 +167,10 @@ window.addEventListener('resize', ajustarAlturaSidebars);
 // dot grid background -  made by me + claude code
 (function () {
   const canvas = document.getElementById('dot-grid');
-  const ctx    = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
 
-  const SP   = 8;
-  const DR   = 0.82;
+  const SP = 8;
+  const DR = 0.82;
   const BASE = 0.115;
   const GLOW_THRESHOLD = 0.18;
 
@@ -179,11 +179,11 @@ window.addEventListener('resize', ajustarAlturaSidebars);
   let staticCanvas = null;
 
   const C = {
-    dimDot : 'rgba(195,190,182, 0.130)',
-    glowA  : a => `rgba(248,244,236,${a})`,
-    glowB  : a => `rgba(210,203,190,${a})`,
-    glowC  : a => `rgba(162,155,144,${a})`,
-    core   : a => `rgba(255,252,244,${a})`,
+    dimDot: 'rgba(195,190,182, 0.130)',
+    glowA: a => `rgba(248,244,236,${a})`,
+    glowB: a => `rgba(210,203,190,${a})`,
+    glowC: a => `rgba(162,155,144,${a})`,
+    core: a => `rgba(255,252,244,${a})`,
   };
 
   const tweenPool = [];
@@ -215,7 +215,7 @@ window.addEventListener('resize', ajustarAlturaSidebars);
 
   function buildStaticGrid() {
     staticCanvas = document.createElement('canvas');
-    staticCanvas.width  = W;
+    staticCanvas.width = W;
     staticCanvas.height = H;
     const sCtx = staticCanvas.getContext('2d');
     sCtx.fillStyle = C.dimDot;
@@ -230,11 +230,11 @@ window.addEventListener('resize', ajustarAlturaSidebars);
   }
 
   function initGrid() {
-    W = canvas.width  = window.innerWidth;
+    W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
-    COLS   = Math.ceil(W / SP) + 1;
-    ROWS   = Math.ceil(H / SP) + 1;
-    N      = COLS * ROWS;
+    COLS = Math.ceil(W / SP) + 1;
+    ROWS = Math.ceil(H / SP) + 1;
+    N = COLS * ROWS;
     bright = new Float32Array(N).fill(BASE);
     locked = new Uint8Array(N);
     tweenPool.length = 0;
@@ -295,7 +295,7 @@ window.addEventListener('resize', ajustarAlturaSidebars);
   let lastFrameTime = 0;
 
   function render(now) {
-    rafId = requestAnimationFrame(render); // reschedule before work so cancel() on visibilitychange kills the next frame
+    rafId = requestAnimationFrame(render);
     const elapsed = now - lastFrameTime;
     if (elapsed < FRAME_MS) return;
     lastFrameTime = now - (elapsed % FRAME_MS);
@@ -315,11 +315,11 @@ window.addEventListener('resize', ajustarAlturaSidebars);
       const col = i % COLS, row = (i / COLS) | 0;
       const x = col * SP + SP * 0.5, y = row * SP + SP * 0.5;
       const glowR = DR * 1.4 + b * 5.5;
-      const grd   = ctx.createRadialGradient(x, y, 0, x, y, glowR);
-      grd.addColorStop(0,    C.glowA(b * 0.19));
+      const grd = ctx.createRadialGradient(x, y, 0, x, y, glowR);
+      grd.addColorStop(0, C.glowA(b * 0.19));
       grd.addColorStop(0.28, C.glowB(b * 0.09));
       grd.addColorStop(0.62, C.glowC(b * 0.032));
-      grd.addColorStop(1,    'rgba(90,86,80,0)');
+      grd.addColorStop(1, 'rgba(90,86,80,0)');
       ctx.fillStyle = grd;
       ctx.beginPath();
       ctx.arc(x, y, glowR, 0, Math.PI * 2);
@@ -343,9 +343,9 @@ window.addEventListener('resize', ajustarAlturaSidebars);
       const lx = logoPX + LOGO_W * 0.5;
       const ly = logoPY + LOGO_H * 0.5;
       const halo = ctx.createRadialGradient(lx, ly, 0, lx, ly, 130);
-      halo.addColorStop(0,    'rgba(255,252,244,0.024)');
+      halo.addColorStop(0, 'rgba(255,252,244,0.024)');
       halo.addColorStop(0.45, 'rgba(255,252,244,0.008)');
-      halo.addColorStop(1,    'rgba(0,0,0,0)');
+      halo.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = halo;
       ctx.beginPath();
       ctx.arc(lx, ly, 130, 0, Math.PI * 2);
@@ -392,9 +392,9 @@ window.addEventListener('resize', ajustarAlturaSidebars);
 
       let hitX = false, hitY = false;
 
-      if (px <= 0)              { px = 0;          vx =  Math.abs(vx); hitX = true; }
+      if (px <= 0) { px = 0; vx = Math.abs(vx); hitX = true; }
       else if (px >= W - LOGO_W) { px = W - LOGO_W; vx = -Math.abs(vx); hitX = true; }
-      if (py <= 0)              { py = 0;          vy =  Math.abs(vy); hitY = true; }
+      if (py <= 0) { py = 0; vy = Math.abs(vy); hitY = true; }
       else if (py >= H - LOGO_H) { py = H - LOGO_H; vy = -Math.abs(vy); hitY = true; }
 
       if (hitX || hitY) {
@@ -439,3 +439,170 @@ document.addEventListener('DOMContentLoaded', () => {
     img.addEventListener('dragstart', e => e.preventDefault());
   });
 });
+
+//
+(function () {
+  var overlay = document.getElementById('projOverlay');
+  if (!overlay) return;
+
+  var PROJ = {
+    fill1: { title: 'eficiente visual', img: '../img/projects/efivi.avif' },
+    fill2: { title: 'rivota', img: '../img/projects/rivota.avif' },
+    fill4: { title: 'stargaze', img: '../img/projects/iaplat.avif' },
+    fill5: { title: 'rações do pedrão', img: '../img/projects/racao.avif' },
+    fill6: { title: 'night march', img: '../img/projects/night-march.avif' },
+    fill7: { title: 'filhos de pelo', img: '../img/projects/projong.avif' },
+    fill9: { title: 'sonho gelado', img: '../img/projects/sonhg.avif' },
+
+    fill10: {
+      title: 'eficiente visual-big', img: '../img/projects/efivibigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+        { img: '../img/web-icon.svg', href: 'https://eficientevisual.vercel.app/', label: 'Website' },
+        { img: '../img/git-icon2.svg', href: 'https://github.com/gusta-leite/EFIVI-LP', label: 'GitHub' },
+      ]
+    },
+    fill11: {
+      title: 'rivota-big', img: '../img/projects/rivotabigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+      ]
+    },
+    fill12: {
+      title: 'stargaze-big', img: '../img/projects/iaplatbigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+      ]
+    },
+    fill13: {
+      title: 'rações do pedrão-big', img: '../img/projects/racaobigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+      ]
+    },
+    fill14: {
+      title: 'night march-big', img: '../img/projects/night-marchbigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+        { img: '../img/web-icon.svg', href: 'https://gusta-leite.github.io/night-march/', label: 'Website' },
+        { img: '../img/git-icon2.svg', href: 'https://github.com/gusta-leite/EFIVI-LP', label: 'GitHub' },
+      ]
+    },
+    fill15: {
+      title: 'filhos de pelo-big', img: '../img/projects/projongbigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+        { img: '../img/web-icon.svg', href: 'https://www.filhosdepelo.com/', label: 'Website' },
+      ]
+    },
+    fill16: {
+      title: 'sonho gelado-big', img: '../img/projects/sonhogbigbig.png', icons: [
+        { img: '../img/close-icon.svg', action: 'close', label: 'Fechar' },
+      ]
+    },
+  };
+
+  var BIG_VARIANT = {
+    fill1: 'fill10', fill2: 'fill11', fill4: 'fill12',
+    fill5: 'fill13', fill6: 'fill14', fill7: 'fill15', fill9: 'fill16'
+  };
+
+  var panel = document.getElementById('projPanel');
+  var titleEl = document.getElementById('projTitle');
+  var imgEl = document.getElementById('projImg');
+  var imgWrap = document.getElementById('projImgWrap');
+  var landing = document.querySelector('.landing');
+  var canvas = document.getElementById('dot-grid');
+  var footer = document.querySelector('footer');
+  var clone = null;
+  var origItem = null;
+
+  function openModal(item) {
+    var data = PROJ[item.id];
+    if (!data) return;
+
+    var bigId = BIG_VARIANT[item.id];
+    var bigData = bigId && PROJ[bigId];
+    var openImg = bigData ? bigData.img : data.img;
+
+    titleEl.textContent = data.title;
+    imgEl.src = openImg;
+    imgEl.alt = data.title;
+    imgWrap.scrollTop = 0;
+
+    var iconsEl = document.getElementById('projIcons');
+    iconsEl.innerHTML = '';
+    var iconSrc = bigData ? bigData.icons : data.icons;
+    (iconSrc || []).forEach(function (icon) {
+      var div = document.createElement('div');
+      div.className = 'proj-modal-icon' + (icon.action === 'close' ? '' : ' proj-modal-icon--link');
+      var inner = document.createElement(icon.action === 'close' ? 'button' : 'a');
+      inner.setAttribute('aria-label', icon.label);
+      if (icon.action === 'close') {
+        inner.type = 'button';
+        inner.addEventListener('click', closeModal);
+      } else {
+        inner.href = icon.href;
+        if (icon.href && icon.href !== '#') { inner.target = '_blank'; inner.rel = 'noopener noreferrer'; }
+        div.addEventListener('mouseenter', function () {
+          gsap.to(".curproj, .curprojmini", { opacity: 1, duration: 0.2 });
+          gsap.to(".cursor, .cursor2", { opacity: 0, duration: 0.2 });
+        });
+        div.addEventListener('mouseleave', function () {
+          gsap.to(".curproj, .curprojmini", { opacity: 0, duration: 0.2 });
+          gsap.to(".cursor, .cursor2", { opacity: 1, duration: 0.2 });
+        });
+      }
+      var img = document.createElement('img');
+      img.src = icon.img;
+      img.alt = icon.label;
+      inner.appendChild(img);
+      div.appendChild(inner);
+      iconsEl.appendChild(div);
+    });
+
+    var rect = item.getBoundingClientRect();
+    clone = document.createElement('div');
+    clone.className = 'proj-active-clone';
+    clone.style.cssText =
+      'top:' + rect.top + 'px;' +
+      'left:' + rect.left + 'px;' +
+      'width:' + rect.width + 'px;' +
+      'height:' + rect.height + 'px;' +
+      'background-image:url(' + data.img + ');';
+    document.body.appendChild(clone);
+
+    origItem = item;
+    item.style.opacity = '0';
+
+    landing.style.filter = 'grayscale(1)';
+    canvas.style.filter = 'grayscale(1)';
+    if (footer) footer.style.filter = 'grayscale(1)';
+
+    overlay.classList.add('active');
+    panel.classList.add('active');
+    document.body.classList.add('proj-modal-open');
+  }
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    panel.classList.remove('active');
+
+    landing.style.filter = '';
+    canvas.style.filter = '';
+    if (footer) footer.style.filter = '';
+
+    if (clone) { document.body.removeChild(clone); clone = null; }
+    if (origItem) { origItem.style.opacity = ''; origItem = null; }
+
+    document.body.classList.remove('proj-modal-open');
+  }
+
+  document.querySelectorAll('[variant-1] .bento__item, [variant-2] .bento__item2').forEach(function (item) {
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (link) e.preventDefault();
+      openModal(item);
+    });
+  });
+
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();

@@ -41,9 +41,6 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="./img/icon.ico">
 
-  <style>
-    #loading-canvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:#0D0D0D;}
-  </style>
 
 </head>
 
@@ -92,7 +89,9 @@
       </div>
     </div>
 
-    <canvas id="loading-canvas"></canvas>
+    <div class="loading" style="display: flex; align-items: flex-end; z-index: 9999;justify-content: flex-start; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; background-color: #0D0D0D;">
+      <div id="counter" style="margin: 0 0 3rem 1.5rem; font-size: 4vw;">1</div>
+    </div>
 
     <div class="landing">
       <!-- fundo -->
@@ -118,250 +117,6 @@
           <span id="col-none"><br><br><br><br><br><br><br></span>
         </div>
 
-        <!-- projetos e sobre movidos para projetos.html e sobre.html -->
-
-        <div id="projetos" class="projetos" style="display: none;">
-          <div class="container-title">
-            <div class="coluna-title">
-              <img src="img/Projetos.svg" id="projecimg" loading="lazy">
-            </div>
-          </div>
-
-          <div class="bento" id="col-none">
-            <div class="bento__container" variant-1>
-
-              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1">
-                <a aria-label="eficientevisual">
-                  <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links1"></div>
-                  <section class="links">
-                    <div class="icons toggle-content" id="links1">
-                      <div class="coluna-icon">
-                        <a href="https://github.com/gusta-leite/EFIVI-LP" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://www.behance.net/gallery/233366807/UI-Eficiente-Visual" target="_blank"
-                          aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://eficientevisual.vercel.app/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website" loading="lazy">
-                        </a>
-                      </div>
-                    </div>
-                  </section>
-                </a>
-              </div>
-              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
-                <a href="https://www.behance.net/gallery/242181555/UI-Stargaze-AI-Platform" target="_blank" aria-label="stargaze">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item bento-skeleton" style="--columns: span 1; --rows: span 2;" id="fill9" itemid="3">
-                <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
-                  aria-label="sonho gelado">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
-                <a href="https://www.behance.net/gallery/242259939/UI-RIVOTA" target="_blank" aria-label="rivota">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item bento-skeleton" style=" --rows: span 5;" id="fill5" itemid="5">
-                <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
-                  aria-label="rações do pedrão">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item bento-skeleton" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6">
-                <a aria-label="night-march">
-                  <div style="height: 80%; width: 100%;" class="js-toggle-trigger" data-target="#links4"></div>
-                  <section class="links">
-                    <div class="icons toggle-content" id="links4">
-                      <div class="coluna-icon">
-                        <a href="https://github.com/gusta-leite/night-march" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank"
-                          aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://gusta-leite.github.io/night-march/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website" loading="lazy">
-                        </a>
-                      </div>
-                    </div>
-                  </section>
-                </a>
-              </div>
-              <div class="bento__item bento-skeleton" style="--columns: span 1;--rows: span 3;" id="fill7" itemid="7">
-                <a aria-label="filhos de pelo">
-                  <div style="height: 80%; width: 100%;" class="js-toggle-trigger-oth" data-target="#links3"></div>
-                  <section class="links">
-                    <div class="icons toggle-content-oth" id="links3">
-                      <div class="coluna-icon">
-                        <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank"
-                          aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a>
-                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://filhosdepelo.com/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website" loading="lazy">
-                        </a>
-                      </div>
-                    </div>
-                  </section>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento2" id="col-none-pc">
-            <div class="bento__container2" variant-2>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill1">
-                <a aria-label="eficientevisual">
-                  <div style="height: 70%; width: 100%;"></div>
-                  <section class="linksmobs-s">
-                    <div class="icons" id="linksmobs">
-                      <div class="coluna-icon">
-                        <a href="https://github.com/gusta-leite/EFIVI-LP" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://www.behance.net/gallery/233366807/UI-Eficiente-Visual" target="_blank"
-                          aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://eficientevisual.vercel.app/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website" loading="lazy">
-                        </a>
-                      </div>
-                    </div>
-                  </section>
-                </a>
-              </div>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill2">
-                <a href="https://www.behance.net/gallery/242181555/UI-Stargaze-AI-Platform" target="_blank" aria-label="stargaze">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill4">
-                <a href="https://www.behance.net/gallery/242259939/UI-RIVOTA" target="_blank" aria-label="rivota">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill5">
-                <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
-                  aria-label="rações do pedrão">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill6">
-                <a aria-label="night-march">
-                  <div style="height: 70%; width: 100%;"></div>
-                  <section class="linksmobs-s">
-                    <div class="icons" id="linksmobs">
-                      <div class="coluna-icon">
-                        <a href="https://github.com/gusta-leite/night-march" target="_blank" aria-label="github">
-                          <img src="img/git-icon2.svg" alt="github" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://www.behance.net/gallery/217036749/UI-Night-March" target="_blank"
-                          aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://gusta-leite.github.io/night-march/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website" loading="lazy">
-                        </a>
-                      </div>
-                    </div>
-                  </section>
-                </a>
-              </div>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill7">
-                <a aria-label="filhos de pelo">
-                  <div style="height: 70%; width: 100%;"></div>
-                  <section class="linksmobs-s">
-                    <div class="icons" id="linksmobs">
-                      <div class="coluna-icon">
-                        <a href="https://www.behance.net/gallery/223301997/UI-Filhos-de-Pelo" target="_blank"
-                          aria-label="behance">
-                          <img src="img/beh-icon2.svg" alt="behance" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a>
-                          <img src="img/beh-icon2.svg" alt="behance" style="opacity: 0;" loading="lazy">
-                        </a>
-                      </div>
-                      <div class="coluna-icon">
-                        <a href="https://filhosdepelo.com/" target="_blank" aria-label="website">
-                          <img src="img/web-icon.svg" alt="website" loading="lazy">
-                        </a>
-                      </div>
-                    </div>
-                  </section>
-                </a>
-              </div>
-              <div class="bento__item2 bento-skeleton" style="--columns: span 4; --rows: span 2;" id="fill9">
-                <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
-                  aria-label="sonho gelado">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="container-abt" id="colabt" style="display: none;">
-          </br>
-          <div class="coluna-abt" id="colabt-eu">
-            <img src="img/mee.svg" id="img-eu" alt="eu!" loading="lazy">
-          </div>
-          <div class="coluna-abt">
-            <img src="img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -50px;" alt="estela" loading="lazy">
-          </div>
-          <div class="coluna-abt">
-            <img src="img/texto.svg" style="height: 90%" class="textcol" id="aboutimg" alt="texto" loading="lazy">
-            <div class="icons">
-              <div class="coluna-icon">
-                <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
-                  <img src="img/lkd-icon.svg" alt="linkedin" loading="lazy">
-                </a>
-              </div>
-              <div class="coluna-icon">
-                <a href="https://github.com/gusta-leite" target="_blank">
-                  <img src="img/git-icon.svg" alt="github" loading="lazy">
-                </a>
-              </div>
-              <div class="coluna-icon">
-                <a href="https://www.behance.net/gustaleite/" target="_blank">
-                  <img src="img/beh-icon.svg" alt="behance" loading="lazy">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
       <div class="sidebar-left" id="sp">
@@ -420,236 +175,28 @@
   </main>
 
 
+  <script src="js/gsap.min.js"></script>
   <script>
-  'use strict';
   (function () {
-
-    // ── mini tween ───────────────────────────────────────────────────────
-    const tw = [];
-    const p4o = t => 1 - (1-t)**4;
-    const p2i = t => t*t;
-    const p1io = t => t < 0.5 ? 2*t*t : 1 - 2*(1-t)*(1-t);
-
-    function addTw(obj, prop, to, dur, ease, onUpd, onDone, delay) {
-      tw.push({ obj, prop, from: obj[prop], to, dur, ease, onUpd, onDone, delay: delay||0, t: 0 });
-    }
-    function killTw(obj) {
-      for (let i = tw.length-1; i >= 0; i--) if (tw[i].obj === obj) tw.splice(i, 1);
-    }
-    function stepTw(dt) {
-      for (let i = tw.length-1; i >= 0; i--) {
-        const e = tw[i];
-        if (e.delay > 0) { e.delay -= dt; continue; }
-        e.t += dt;
-        const p = Math.min(1, e.t / e.dur);
-        e.obj[e.prop] = e.from + (e.to - e.from) * e.ease(p);
-        if (e.onUpd) e.onUpd();
-        if (p >= 1) { e.obj[e.prop] = e.to; tw.splice(i, 1); if (e.onDone) e.onDone(); }
+    var counterObject = { value: 1 };
+    var counterElement = document.getElementById('counter');
+    gsap.to(counterObject, {
+      value: 99,
+      duration: 2,
+      ease: 'power1.out',
+      onUpdate: function () {
+        counterElement.textContent = Math.floor(counterObject.value);
       }
-    }
-    // ────────────────────────────────────────────────────────────────────
-
-    const canvas = document.getElementById('loading-canvas');
-    const ctx    = canvas.getContext('2d');
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const W = canvas.width, H = canvas.height;
-
-    const SP   = 6;
-    const COLS = Math.ceil(W / SP) + 2;
-    const ROWS = Math.ceil(H / SP) + 2;
-    const N    = COLS * ROWS;
-    const DR   = 0.76;
-    const BASE = 0.08;
-
-    const GX = (W - COLS * SP) * 0.5;
-    const GY = (H - ROWS * SP) * 0.5;
-
-    const bright = new Float32Array(N).fill(BASE);
-    const locked = new Uint8Array(N);
-    const zone   = new Uint8Array(N);
-    const dotX   = new Float32Array(N);
-    const dotY   = new Float32Array(N);
-    for (let i = 0; i < N; i++) {
-      dotX[i] = GX + (i % COLS) * SP + SP * 0.5;
-      dotY[i] = GY + ((i / COLS) | 0) * SP + SP * 0.5;
-    }
-
-    const CX = (COLS - 1) * 0.5, CY = (ROWS - 1) * 0.5;
-    const NP = 12, ROT = -Math.PI * 0.5;
-
-    function starEdge(ang, R, r) {
-      const sec = (Math.PI * 2) / NP;
-      const a   = ((ang - ROT) % sec + sec) % sec;
-      const t   = Math.min(a, sec - a) / (sec * 0.5);
-      return r + (R - r) * (1 - t);
-    }
-    const inStar = (dx, dy, R, r) =>
-      Math.hypot(dx, dy) <= starEdge(Math.atan2(dy, dx), R, r);
-
-    for (let i = 0; i < N; i++) {
-      const dx = (i % COLS) - CX, dy = ((i / COLS) | 0) - CY;
-      if      (inStar(dx, dy, 13.5, 10))   zone[i] = 3;
-      else if (inStar(dx, dy, 17.5, 11.5)) zone[i] = 2;
-      else if (inStar(dx, dy, 22.5, 14))   zone[i] = 1;
-    }
-
-    const ZC = [null, [218,62,48], [58,80,212], [228,172,52]];
-    const rc  = (r, g, b, a) => `rgba(${r},${g},${b},${a})`;
-    const zc  = (z, a) => rc(...ZC[z], a);
-
-    const starDots = [];
-    for (let i = 0; i < N; i++) {
-      if (!zone[i]) continue;
-      const dx = (i % COLS) - CX, dy = ((i / COLS) | 0) - CY;
-      starDots.push({ i, dist: Math.hypot(dx, dy) });
-    }
-    starDots.sort((a, b) => a.dist - b.dist);
-    const TOTAL = starDots.length;
-
-    const ZB = [0, 0.36, 0.44, 0.55];
-    const TW_I=0,TW_FROM=1,TW_PEAK=2,TW_TARGET=3,TW_RISE=4,TW_SETTLE=5,TW_T=6,TW_PHASE=7;
-    const dotTw = [];
-
-    function updateDotTweens(dt) {
-      for (let j = dotTw.length-1; j >= 0; j--) {
-        const d = dotTw[j]; d[TW_T] += dt;
-        if (d[TW_PHASE] === 0) {
-          const t = Math.min(1, d[TW_T] / d[TW_RISE]);
-          bright[d[TW_I]] = d[TW_FROM] + (d[TW_PEAK] - d[TW_FROM]) * (1-(1-t)**3);
-          if (t >= 1) { d[TW_PHASE] = 1; d[TW_T] = 0; }
-        } else {
-          const t = Math.min(1, d[TW_T] / d[TW_SETTLE]);
-          bright[d[TW_I]] = d[TW_PEAK] + (d[TW_TARGET] - d[TW_PEAK]) * (0.5 - 0.5*Math.cos(t*Math.PI));
-          if (t >= 1) { bright[d[TW_I]] = d[TW_TARGET]; locked[d[TW_I]] = 0; dotTw[j] = dotTw[dotTw.length-1]; dotTw.pop(); }
-        }
-      }
-    }
-
-    function lightDot(i) {
-      if (locked[i]) return; locked[i] = 1;
-      const target = ZB[zone[i]];
-      dotTw.push([i, bright[i], target*1.6, target, 0.07+Math.random()*0.06, 0.2+Math.random()*0.18, 0, 0]);
-    }
-
-    const counter  = { value: 0 };
-    const lp       = { p: 0 };
-    const fade     = { a: 1 };
-    let lastLit    = 0;
-    let rafId      = null;
-    const LOAD_START  = Date.now();
-    const MIN_DISPLAY = 3600;
-
-    function startLoad() {
-      for (let i = 0; i < N; i++)
-        if (zone[i]) { bright[i] = BASE * 0.35; locked[i] = 0; }
-
-      addTw(counter, 'value', 99, 3.5, p4o, null, null);
-      addTw(lp, 'p', TOTAL, 3.5, p4o, () => {
-        const tgt = Math.round(lp.p);
-        while (lastLit < tgt) lightDot(starDots[lastLit++].i);
-      });
-    }
-
-    window._completeLoading = function () {
-      window._completeLoading = null;
-      const wait = Math.max(0, MIN_DISPLAY - (Date.now() - LOAD_START));
-      setTimeout(function () {
-        killTw(counter); killTw(lp);
-        addTw(counter, 'value', 100, 0.32, p2i, null, null);
-        addTw(lp, 'p', TOTAL, 0.32, p2i, () => {
-          const tgt = Math.round(lp.p);
-          while (lastLit < tgt) lightDot(starDots[lastLit++].i);
-        }, () => {
-          addTw(fade, 'a', 0, 0.45, p1io, null, () => {
-            cancelAnimationFrame(rafId); rafId = null; dotTw.length = 0; canvas.style.display = 'none';
-          }, 0.12);
-        });
-      }, wait);
-    };
-
-    startLoad();
-
-    const FRAME_MS = 1000 / 12;
-    let lastTime = -1;
-    function render(now) {
-      rafId = requestAnimationFrame(render);
-      if (lastTime < 0) { lastTime = now; }
-      const elapsed = now - lastTime;
-      if (elapsed < FRAME_MS) return;
-      const dt = Math.min(elapsed / 1000, 0.1);
-      lastTime = now - (elapsed % FRAME_MS);
-
-      stepTw(dt);
-      updateDotTweens(dt);
-
-      ctx.clearRect(0, 0, W, H);
-      ctx.globalAlpha = fade.a;
-
-      ctx.globalCompositeOperation = 'source-over';
-      for (let z = 1; z <= 3; z++) {
-        ctx.fillStyle = zc(z, 0.055);
-        ctx.beginPath();
-        for (let i = 0; i < N; i++) {
-          if (zone[i] === z && bright[i] < 0.15) {
-            ctx.moveTo(dotX[i] + DR, dotY[i]);
-            ctx.arc(dotX[i], dotY[i], DR, 0, Math.PI * 2);
-          }
-        }
-        ctx.fill();
-      }
-
-      ctx.globalCompositeOperation = 'lighter';
-      for (let i = 0; i < N; i++) {
-        const b = bright[i];
-        if (b < 0.15) continue;
-        const x = dotX[i], y = dotY[i], z = zone[i];
-        if (!z) continue;
-        const gR  = DR * 1.5 + b * 5.8;
-        const grd = ctx.createRadialGradient(x, y, 0, x, y, gR);
-        const [r, g, bl] = ZC[z];
-        grd.addColorStop(0,    rc(r, g, bl, b * 0.28));
-        grd.addColorStop(0.3,  rc(r, g, bl, b * 0.12));
-        grd.addColorStop(0.65, rc(r, g, bl, b * 0.038));
-        grd.addColorStop(1,    rc(r, g, bl, 0));
-        ctx.fillStyle = grd;
-        ctx.beginPath();
-        ctx.arc(x, y, gR, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.globalCompositeOperation = 'source-over';
-      for (let i = 0; i < N; i++) {
-        const b = bright[i];
-        if (b < 0.15) continue;
-        const x = dotX[i], y = dotY[i], z = zone[i];
-        if (!z) continue;
-        const [r, g, bl] = ZC[z];
-        ctx.fillStyle = rc(r, g, bl, Math.min(1, b * 1.1));
-        ctx.beginPath();
-        ctx.arc(x, y, DR * (1.05 + b * 0.36), 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.font         = '400 62px "Urbanist",system-ui,sans-serif';
-      ctx.textAlign    = 'center';
-      ctx.textBaseline = 'alphabetic';
-      ctx.fillStyle    = 'rgba(238,228,208,0.86)';
-      const cv = Math.round(counter.value);
-      ctx.fillText(cv < 100 ? String(cv).padStart(2,'0') : '100', W*0.5, H*0.5 + 22.5*SP + 76);
-
-      ctx.globalAlpha = 1;
-    }
-
-    rafId = requestAnimationFrame(render);
-
+    });
+    var loading = document.querySelector('.loading');
     window.addEventListener('load', function () {
-      if (window._completeLoading) window._completeLoading();
+      setTimeout(function () {
+        loading.classList.add('hidden');
+        setTimeout(function () { loading.style.display = 'none'; }, 500);
+      }, 2900);
     });
   })();
   </script>
-  <script src="js/gsap.min.js" defer></script>
   <script src="js/script.min.js" defer></script>
   <script src="js/translations.min.js" defer></script>
   <script>
