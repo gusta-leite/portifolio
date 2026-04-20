@@ -90,13 +90,7 @@ document.querySelectorAll('.js-toggle-trigger, .js-toggle-trigger-oth').forEach(
 
 
 // animação model-pc
-const legoImg = document.querySelector(".lego-img");
-if (legoImg) {
-    const testCanvas = document.createElement('canvas');
-    const hasWebGL = !!(testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl'));
-    if (!hasWebGL) legoImg.style.display = 'none';
-}
-
+const legoImg=document.querySelector(".lego-img");if(legoImg){const testCanvas=document.createElement('canvas');const hasWebGL=!!(testCanvas.getContext('webgl')||testCanvas.getContext('experimental-webgl'));if(!hasWebGL)legoImg.style.display='none';}
 const logo = document.querySelector("#model-pc");
 
 window.addEventListener('load', function () {
