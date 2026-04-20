@@ -582,7 +582,7 @@ select option {
     margin: 0 auto;
     display: grid;
     margin-top: 5rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .container-abt img {

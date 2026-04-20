@@ -36,6 +36,7 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="../img/icon.ico">
 
+  <noscript><style>.loading { display: none !important; }</style></noscript>
 
 </head>
 
@@ -43,9 +44,9 @@
 <body style="background-color:#0D0D0D;">
   <main>
 
-    <canvas id="dot-grid"></canvas>
+    <canvas id="dot-grid" aria-hidden="true"></canvas>
 
-    <div> <!-- Cursores-->
+    <div aria-hidden="true"> <!-- Cursores-->
       <div class="cursor">
         <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g style="mix-blend-mode:exclusion">
@@ -91,8 +92,8 @@
     <div class="landing">
       <!-- fundo -->
       <div class="lp-container">
-
         <div class="container-abt" id="colabt" style="display: flex;">
+          
           </br>
           <div class="coluna-abt" id="colabt-eu">
             <img src="../img/mee.svg" id="img-eu" alt="eu!" loading="lazy">
@@ -101,7 +102,16 @@
             <img src="../img/star.svg" class="star" id="col-none" style="height: 130%; margin-top: -50px;" alt="estela" loading="lazy">
           </div>
           <div class="coluna-abt">
-            <img src="../img/texto.svg" style="height: 90%" class="textcol" id="aboutimg" alt="texto" loading="lazy">
+            <div class="textcol about-text-block" id="aboutimg">
+              <p id="about-p1">Olá, meu nome é <b>Gustavo Leite</b>, atualmente sou estagiário de UX/UI na NOOMA Digital, e acredito que um website pode ser funcional sem <b>ser entediante.</b></p>
+              <p id="about-p2">Meus sites e designs são minha forma de resolver problemas do dia a dia, além de me <b>expressar.</b> Atualmente estou trabalhando em um projeto de pesquisa científica que envolve o <b>redesign de um sistema operacional para pessoas com visão baixa.</b></p>
+              <p id="about-p3">Estou atualmente buscando melhorar meus <b>designs systems</b> enquanto estudo <b>NextJS e Tailwind</b> para transcrever mais dos meus pensamentos para a <b>tela do computador.</b></p> 
+              <div class="about-banners">
+                <span id="banner-1"><b>Certificado Profissional do Google em UX Design.</b></span>
+                <span id="banner-2"><b>Aprendendo GSAP.</b></span>
+                <span id="banner-3"><b>Estudando NextJS + Tailwind.</b></span>
+              </div>
+            </div>
             <div class="icons">
               <div class="coluna-icon">
                 <a href="https://www.linkedin.com/in/gustaleite/" target="_blank">
@@ -123,7 +133,7 @@
         </div>
 
       </div>
-      <div class="sidebar-left" id="sp">
+      <div class="sidebar-left" id="sp" aria-hidden="true">
         <svg width="120" height="100%" viewBox="0 0 120 976" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M0 0H19V976H0V0Z" fill="#1C2F22"></path>
@@ -132,7 +142,7 @@
         </svg>
       </div>
 
-      <div class="sidebar-right" id="sp">
+      <div class="sidebar-right" id="sp" aria-hidden="true">
         <svg width="119" height="100%" viewBox="0 0 119 976" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M100.137 857C100.137 857 100.137 904 72.8268 941.5C54.3668 966.848 0 976 0 976H100.137V857Z"
@@ -167,8 +177,8 @@
     </div>
 
     <footer class="logo">
-      <a href="https://wa.me/5517996073702" target="_blank">
-        <img src="../img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="logo" loading="lazy">
+      <a href="https://wa.me/5517996073702" target="_blank" aria-label="WhatsApp">
+        <img src="../img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="" loading="lazy">
         <button class="button">
           <span id="whatsapp">me mande uma mensagem.</span>
         </button>

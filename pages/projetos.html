@@ -35,15 +35,17 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="../img/icon.ico">
 
+  <noscript><style>.loading { display: none !important; }</style></noscript>
+
 </head>
 
 
 <body style="background-color:#0D0D0D;">
   <main>
 
-    <canvas id="dot-grid"></canvas>
+    <canvas id="dot-grid" aria-hidden="true"></canvas>
 
-    <div> <!-- Cursores-->
+    <div aria-hidden="true"> <!-- Cursores-->
       <div class="cursor">
         <svg width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g style="mix-blend-mode:exclusion">
@@ -93,99 +95,38 @@
         <div id="projetos" class="projetos">
           <div class="container-title">
             <div class="coluna-title">
-              <img src="../img/Projetos.svg" id="projecimg" loading="lazy">
+              <h1 id="projecimg"><span class="subtitle-small">recentes</span>projetos</h1>
             </div>
           </div>
 
           <div class="bento" id="col-none">
             <div class="bento__container" variant-1>
 
-              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1">
-                <a aria-label="eficientevisual">
-                  <div style="height: 80%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2">
-                <a href="https://www.behance.net/gallery/242181555/UI-Stargaze-AI-Platform" target="_blank" aria-label="stargaze">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item" style="--columns: span 1; --rows: span 2;" id="fill9" itemid="3">
-                <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
-                  aria-label="sonho gelado">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4">
-                <a href="https://www.behance.net/gallery/242259939/UI-RIVOTA" target="_blank" aria-label="rivota">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item" style=" --rows: span 5;" id="fill5" itemid="5">
-                <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
-                  aria-label="rações do pedrão">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6">
-                <a aria-label="night-march">
-                  <div style="height: 80%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item" style="--columns: span 1;--rows: span 3;" id="fill7" itemid="7">
-                <a aria-label="filhos de pelo">
-                  <div style="height: 80%; width: 100%;"></div>
-
-                </a>
-              </div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill1" itemid="1" aria-label="eficientevisual"></div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill2" itemid="2" aria-label="stargaze"></div>
+              <div class="bento__item" style="--columns: span 1; --rows: span 2;" id="fill9" itemid="3" aria-label="sonho gelado"></div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 2;" id="fill4" itemid="4" aria-label="rivota"></div>
+              <div class="bento__item" style=" --rows: span 5;" id="fill5" itemid="5" aria-label="rações do pedrão"></div>
+              <div class="bento__item" style="--columns: span 2; --rows: span 3;" id="fill6" itemid="6" aria-label="night-march"></div>
+              <div class="bento__item" style="--columns: span 1;--rows: span 3;" id="fill7" itemid="7" aria-label="filhos de pelo"></div>
             </div>
           </div>
 
           <div class="bento2" id="col-none-pc">
             <div class="bento__container2" variant-2>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill1">
-                <a aria-label="eficientevisual">
-                  <div style="height: 70%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill2">
-                <a href="https://www.behance.net/gallery/242181555/UI-Stargaze-AI-Platform" target="_blank" aria-label="stargaze">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill4">
-                <a href="https://www.behance.net/gallery/242259939/UI-RIVOTA" target="_blank" aria-label="rivota">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill5">
-                <a href="https://www.behance.net/gallery/207629483/UI-Racoes-do-Pedrao" target="_blank"
-                  aria-label="rações do pedrão">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill6">
-                <a aria-label="night-march">
-                  <div style="height: 70%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill7">
-                <a aria-label="filhos de pelo">
-                  <div style="height: 70%; width: 100%;"></div>
-                </a>
-              </div>
-              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill9">
-                <a href="https://www.behance.net/gallery/211931959/UI-Sonho-Gelado" target="_blank"
-                  aria-label="sonho gelado">
-                  <div style="height: 100%; width: 100%;"></div>
-                </a>
-              </div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill1" aria-label="eficientevisual"></div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill2" aria-label="stargaze"></div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill4" aria-label="rivota"></div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill5" aria-label="rações do pedrão"></div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill6" aria-label="night-march"></div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill7" aria-label="filhos de pelo"></div>
+              <div class="bento__item2" style="--columns: span 4; --rows: span 2;" id="fill9" aria-label="sonho gelado"> </div>
             </div>
           </div>
         </div>
 
       </div>
-      <div class="sidebar-left" id="sp">
+      <div class="sidebar-left" id="sp" aria-hidden="true">
         <svg width="120" height="100%" viewBox="0 0 120 976" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M0 0H19V976H0V0Z" fill="#1C2F22"></path>
@@ -194,7 +135,7 @@
         </svg>
       </div>
 
-      <div class="sidebar-right" id="sp">
+      <div class="sidebar-right" id="sp" aria-hidden="true">
         <svg width="119" height="100%" viewBox="0 0 119 976" preserveAspectRatio="none" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M100.137 857C100.137 857 100.137 904 72.8268 941.5C54.3668 966.848 0 976 0 976H100.137V857Z"
@@ -229,8 +170,8 @@
     </div>
 
     <footer class="logo">
-      <a href="https://wa.me/5517996073702" target="_blank">
-        <img src="../img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="logo" loading="lazy">
+      <a href="https://wa.me/5517996073702" target="_blank" aria-label="WhatsApp">
+        <img src="../img/logo-foot-mob.svg" id="logofin" class="footernotshowoth" alt="" loading="lazy">
         <button class="button">
           <span id="whatsapp">me mande uma mensagem.</span>
         </button>
@@ -241,9 +182,9 @@
   </main>
 
     <!-- Project Modal -->
-    <div class="proj-overlay-dark" id="projOverlay"></div>
+    <div class="proj-overlay-dark" id="projOverlay" aria-hidden="true"></div>
 
-    <div class="proj-modal-panel" id="projPanel">
+    <div class="proj-modal-panel" id="projPanel" role="dialog" aria-modal="true" aria-labelledby="projTitle">
       <p class="proj-modal-title" id="projTitle"></p>
       <div class="proj-modal-img-wrap" id="projImgWrap">
         <img id="projImg" src="" alt="">
